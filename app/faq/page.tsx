@@ -1,124 +1,118 @@
-import { Calendar } from "@/components/ui/calendar"
 import { Navigation } from "@/components/navigation"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { HelpCircle, Phone, Mail, Clock } from "lucide-react"
+import { HelpCircle, Phone, Mail, Clock, Calendar } from "lucide-react"
 import Link from "next/link"
 
 export default function FAQPage() {
   const faqCategories = [
     {
-      category: "Service & Scheduling",
+      category: "Service & Pickup",
       questions: [
         {
-          question: "What day is my trash picked up?",
+          question: "When will my trash be picked up?",
           answer:
-            "Your pickup day is assigned when you sign up for service and depends on your location within our service area. We'll provide you with your specific pickup day and remind you to have your bins out by 7 AM on that day.",
+            "Mike's Trash pick-up limit is based off of the service you choose when you signed up for service. Below are the limits for each service option: Mike's Toter = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up every week. Once A Month Service = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up once a month.",
         },
         {
-          question: "What if I miss my pickup day?",
+          question: "What time should I put out the trash?",
           answer:
-            "If you miss your scheduled pickup, please contact us as soon as possible. We may be able to arrange a special pickup for an additional fee, or you can wait until your next scheduled pickup day.",
+            "Answer will be provided soon. Please contact us for information.",
         },
         {
-          question: "Do you provide trash bins?",
+          question: "Can I leave items beside my toter?",
           answer:
-            "We can provide standard trash bins for an additional monthly fee, or you can use your own bins. We recommend wheeled bins for easier handling and to protect your back.",
-        },
-        {
-          question: "What time should I put my bins out?",
-          answer:
-            "Please have your bins at the curb by 7 AM on your pickup day. Our routes start early to avoid traffic and complete service efficiently. You can put bins out the night before if preferred.",
+            "Answer will be provided soon. Please contact us for information.",
         },
       ],
     },
     {
-      category: "Billing & Pricing",
+      category: "Trash Collection Guidelines",
       questions: [
         {
-          question: "How much does service cost?",
+          question: "Is there a trash bag limit?",
           answer:
-            "Our pricing varies based on the type and frequency of service you need. Contact us for a personalized quote based on your specific requirements. We offer competitive rates with no hidden fees.",
+            "Mike's Trash pick-up limit is based off of the service you choose when you signed up for service. Below are the limits for each service option: Mike's Toter = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up every week. Once A Month Service = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up once a month.",
         },
         {
-          question: "How do I pay my bill?",
+          question: "What about loose trash?",
           answer:
-            "We offer convenient monthly billing with multiple payment options including online payments, automatic bank draft, and traditional mail-in payments. Use the 'Make a Payment' button in our navigation to access our payment portal.",
-        },
-        {
-          question: "Is there a contract required?",
-          answer:
-            "We don't require long-term contracts for residential service. We believe in earning your business through reliable service, not binding agreements. Commercial accounts may have different terms.",
-        },
-        {
-          question: "Are there any additional fees?",
-          answer:
-            "Our standard pricing includes regular pickup service. Additional fees may apply for extra bags beyond your plan, special pickups, or bin rental. We'll always discuss any additional charges upfront.",
+            "Answer will be provided soon. Please contact us for information.",
         },
       ],
     },
     {
-      category: "What We Accept",
+      category: "Special Items & Services",
       questions: [
         {
-          question: "What can I put in my regular trash?",
+          question: "How do I dispose of a used mattress or old toilet? Can I schedule these to be picked up?",
           answer:
-            "Regular household waste including kitchen scraps, paper, cardboard, plastic containers, and general household items. Items should be bagged and placed in your bin.",
+            "Answer will be provided soon. Please contact us for information.",
         },
         {
-          question: "Do you take large items like furniture?",
+          question: "Do you offer one-time pick-ups?",
           answer:
-            "Yes! We offer bulk pickup service for large items like furniture, appliances, and other bulky items. This requires special scheduling and may have additional fees. We're the only company in the area that provides this service with professional care.",
+            "Answer will be provided soon. Please contact us for information.",
         },
         {
-          question: "What about hazardous materials?",
+          question: "Can you dump a dumpster that I own?",
           answer:
-            "We cannot accept hazardous materials including paint, chemicals, batteries, motor oil, or medical waste. Contact your local waste management authority for proper disposal of these items.",
-        },
-        {
-          question: "Can you take construction debris?",
-          answer:
-            "Small amounts of construction debris can go in our dumpster rentals. For larger construction projects, consider our roll-off container service. Regular trash pickup cannot accommodate construction materials.",
+            "Answer will be provided soon. Please contact us for information.",
         },
       ],
     },
     {
-      category: "Service Area & Coverage",
+      category: "Equipment & Responsibility",
       questions: [
         {
-          question: "Do you serve my area?",
+          question: "Who is responsible for the toter or dumpster? Mike's Trash or me?",
           answer:
-            "We serve Fulton County and Rochester, NY. Use our address checker on the homepage to see if we serve your specific location. We're always expanding our service area.",
-        },
-        {
-          question: "What if you don't serve my area yet?",
-          answer:
-            "Contact us to be added to our expansion list. We're continuously growing our service area and will notify you when we begin serving your neighborhood.",
-        },
-        {
-          question: "Do you serve businesses?",
-          answer:
-            "Yes! We provide commercial service including regular pickup, dumpster rentals, and roll-off containers for businesses of all sizes. Contact us for a commercial service quote.",
+            "Answer will be provided soon. Please contact us for information.",
         },
       ],
     },
     {
-      category: "Weather & Holidays",
+      category: "Weather & Schedule Changes",
       questions: [
         {
-          question: "What happens during bad weather?",
+          question: "What happens if there is bad weather?",
           answer:
-            "We make every effort to maintain regular service during inclement weather. However, if conditions are unsafe, we may delay service until the next business day. Customer safety and our crew safety are our top priorities.",
+            "Answer will be provided soon. Please contact us for information.",
+        },
+      ],
+    },
+    {
+      category: "Contact & Office Information",
+      questions: [
+        {
+          question: "When is the office open? Where is the office located?",
+          answer:
+            "Answer will be provided soon. Please contact us for information.",
+        },
+      ],
+    },
+    {
+      category: "Billing & Payment",
+      questions: [
+        {
+          question: "Do you offer email billing?",
+          answer:
+            "Answer will be provided soon. Please contact us for information.",
         },
         {
-          question: "Do you pick up on holidays?",
+          question: "Do you offer Autopay?",
           answer:
-            "We observe major holidays and do not provide service on New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving, and Christmas. Service is moved to the next business day. Check our holiday calendar for specific dates.",
+            "Answer will be provided soon. Please contact us for information.",
         },
+      ],
+    },
+    {
+      category: "Communication & Security",
+      questions: [
         {
-          question: "How will I know about schedule changes?",
+          question: "I just got a text from Mike's trash, is this legit?",
           answer:
-            "We'll contact customers directly about any schedule changes due to holidays or weather. Make sure we have your current phone number and email address to receive updates.",
+            "Answer will be provided soon. Please contact us for information.",
         },
       ],
     },

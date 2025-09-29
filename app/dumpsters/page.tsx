@@ -1,77 +1,131 @@
 import { Navigation } from "@/components/navigation"
 import { AddressChecker } from "@/components/address-checker"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Clock, Wrench, Shield } from "lucide-react"
+import { CheckCircle, Clock, Wrench, Shield, AlertCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function DumpstersPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Dumpster Rentals</h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
-            Perfect for home renovations, cleanouts, and construction projects. Clean dumpsters delivered and picked up
-            on your schedule.
-          </p>
+      {/* Zip CTA Bar */}
+      <section className="bg-accent/40 border-b border-border">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Check your Zip now</h2>
+          <a href="#address-form" className="inline-flex">
+            <button className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2 font-medium shadow hover:opacity-90 transition">
+              Address Zip Form
+            </button>
+          </a>
+        </div>
+      </section>
+
+      {/* Page Title */}
+      <section className="py-10 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Dumpsters</h1>
         </div>
       </section>
 
       {/* Service Details */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Right-Sized for Your Project</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Whether you're renovating a bathroom or cleaning out an entire house, we have the right size dumpster
-                for your project. Our clean, well-maintained containers are delivered promptly and picked up on
-                schedule.
-              </p>
+          {/* Permanent Placement Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+            <Card className="border-2 border-primary/20">
+              <CardHeader className="text-center bg-primary/5">
+                <CardTitle className="text-2xl text-primary">Permanent Placement Dumpsters</CardTitle>
+                <CardDescription>Reliable long-term dumpster service</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-4 mb-4">
+                  <div className="font-semibold">2-Yard Dumpster</div>
+                  <div className="font-semibold">3-Yard Dumpster</div>
+                  <div className="font-semibold">6-Yard Dumpster</div>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  Mike's Trash offers 2-yard, 3-yard, and 6-yard rear-load dumpsters for long-term Permanent
+                  Placement. We can dump locations within-in the Rochester City limits up to 5x per week. For
+                  locations outside Rochester City limits, please contact the office to determine dump schedule.
+                </p>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Multiple Sizes Available</h3>
-                    <p className="text-muted-foreground">From 10-yard to 30-yard containers to fit any project</p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground">
+                      Please contact the office for pricing and to schedule a clean out dumpster.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground">
+                      No construction debris are allowed in permanent placement dumpsters.
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Flexible Rental Periods</h3>
-                    <p className="text-muted-foreground">Keep it as long as you need - we work with your timeline</p>
-                  </div>
+                <div className="bg-primary text-primary-foreground p-5 rounded-xl mt-6">
+                  Mike's Trash offers dumpsters for permanent placement for residential and business trash removal as
+                  well as dumpster rentals for clean out or remodel projects.
                 </div>
+              </CardContent>
+            </Card>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Professional Delivery</h3>
-                    <p className="text-muted-foreground">Careful placement to protect your property and landscaping</p>
-                  </div>
-                </div>
+            {/* Dumpster Photos */}
+            <div className="space-y-4">
+              <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
+                <Image
+                  src="/Dumpster in alley with company logo.jpg"
+                  alt="Mike's Trash dumpster with company logo"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  quality={95}
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
+                <Image
+                  src="/rtc-dumpster.jpg"
+                  alt="Professional dumpster placement"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  quality={95}
+                />
               </div>
             </div>
+          </div>
 
-            <div className="bg-primary/5 p-8 rounded-2xl">
-              <img
-                src="/clean-dumpster-at-residential-construction-site.jpg"
-                alt="Clean dumpster at residential construction site"
-                className="w-full h-64 object-cover rounded-lg mb-6"
-              />
-              <p className="text-center text-muted-foreground italic">
-                Clean, professional dumpsters that won't detract from your property
-              </p>
+          {/* Service in Action */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Our Service in Action</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="overflow-hidden rounded-2xl shadow-xl relative aspect-[4/3]">
+                <Image
+                  src="/Dumpster being emptied by large trash truck showcasing company logo.jpg"
+                  alt="Mike's Trash truck emptying dumpster"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  quality={95}
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl shadow-xl relative aspect-[4/3]">
+                <Image
+                  src="/Large trash truck emptying large dumpster in front of city hall.jpg"
+                  alt="Commercial dumpster service"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  quality={95}
+                />
+              </div>
             </div>
           </div>
 
           {/* Dumpster Sizes */}
-          <div className="mb-16">
+          {/* <div className="mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Choose Your Size</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card>
@@ -131,7 +185,7 @@ export default function DumpstersPage() {
                 </CardContent>
               </Card>
             </div>
-          </div>
+          </div> */}
 
           {/* Service Features */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">

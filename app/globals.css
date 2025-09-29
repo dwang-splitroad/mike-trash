@@ -123,6 +123,22 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* High-quality image rendering for photos */
+  img {
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Smooth scaling for photo images */
+  img[src$=".jpg"],
+  img[src$=".jpeg"],
+  img[src$=".png"] {
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
 }
 
 /* Added custom animations for garbage truck */

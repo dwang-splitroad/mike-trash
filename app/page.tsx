@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Truck, Users, Leaf, Clock } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -11,15 +12,26 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-secondary to-background py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative py-20 px-4 min-h-[500px] md:min-h-[600px]">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/truck-street.jpg"
+            alt="Mike's Trash truck on street"
+            fill
+            sizes="100vw"
+            className="object-cover object-center opacity-15"
+            quality={85}
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background"></div>
+        </div>
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
             Your Trusted Neighborhood
             <span className="block text-primary">Trash Service</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty">
-            Family-owned and operated in Fulton County and Rochester. Clean, reliable, and neighborly waste management
-            services.
+            In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p>
 
           <div className="mb-16">
@@ -109,49 +121,89 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Fleet & Team Showcase */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">Meet Our Team & Fleet</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-2xl shadow-xl bg-card overflow-hidden relative aspect-[4/3]">
+              <Image
+                src="/Owner smiling really big next to large trash truck.jpg"
+                alt="Owner with Mike's Trash truck"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+                quality={95}
+                priority
+              />
+            </div>
+            <div className="rounded-2xl shadow-xl bg-card overflow-hidden relative aspect-[4/3]">
+              <Image
+                src="/Large trash truck parked outside city hall.jpg"
+                alt="Professional Mike's Trash fleet serving the community"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+                quality={95}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
       <section className="py-20 px-4 bg-secondary/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Mike's Trash Service?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Our Neighbors Say</h2>
             <p className="text-lg text-muted-foreground">
-              We're not just a trash service - we're your neighbors who care about our community
+              Don't just take our word for it - hear from our satisfied customers
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Family Owned & Operated</h3>
-              <p className="text-muted-foreground">
-                We live in the community we serve. When you call, you're talking to neighbors who care about keeping our
-                area clean and beautiful.
-              </p>
-            </div>
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-4xl mb-4">"</div>
+                <p className="text-xl font-semibold text-foreground mb-4">just amazing</p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground">The</p>
+                    <p className="text-xs text-muted-foreground">User Location</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Leaf className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Clean & Professional</h3>
-              <p className="text-muted-foreground">
-                We take pride in our clean trucks, professional service, and attention to detail. Trash service doesn't
-                have to be messy.
-              </p>
-            </div>
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-4xl mb-4">"</div>
+                <p className="text-xl font-semibold text-foreground mb-4">the best</p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground">The</p>
+                    <p className="text-xs text-muted-foreground">User Location</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Reliable Service</h3>
-              <p className="text-muted-foreground">
-                Count on us for consistent, on-time pickup. We're here when you need us, with flexible scheduling and
-                responsive customer service.
-              </p>
-            </div>
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-4xl mb-4">"</div>
+                <p className="text-xl font-semibold text-foreground mb-4">number one</p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground">The</p>
+                    <p className="text-xs text-muted-foreground">User Location</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -161,14 +213,14 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to experience the difference?</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Join hundreds of satisfied customers who trust Mike's Trash Service for all their waste management needs.
+            In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/contact">Get Started Today</Link>
+              <Link href="/about">Learn About Us</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/about">Meet Our Family</Link>
+              <Link href="/contact">Get Started Today</Link>
             </Button>
           </div>
         </div>
