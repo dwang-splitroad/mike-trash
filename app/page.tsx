@@ -231,11 +231,14 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">M</span>
-                </div>
-                <span className="font-bold text-xl text-foreground">Mike's Trash</span>
+              <div className="mb-4">
+                <Image
+                  src="/mikes-trash-logo-no-number.png"
+                  alt="Mike's Trash Logo"
+                  width={360}
+                  height={120}
+                  className="h-24 w-auto"
+                />
               </div>
               <p className="text-muted-foreground">
                 Your trusted neighborhood waste management service in Fulton County and Rochester.

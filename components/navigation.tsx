@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
@@ -34,13 +35,17 @@ export function Navigation() {
         </div>
       </div>
       <div className="w-full">
-        <div className="grid grid-cols-3 lg:grid-cols-[auto,1fr,auto] items-center h-16 w-full px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 lg:grid-cols-[auto,1fr,auto] items-center h-28 w-full px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 justify-self-start">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">M</span>
-            </div>
-            <span className="font-bold text-xl text-foreground">Mike's Trash</span>
+          <Link href="/" className="flex items-center space-x-3 justify-self-start">
+            <Image
+              src="/mikes-trash-logo-no-number.png"
+              alt="Mike's Trash Logo"
+              width={360}
+              height={120}
+              className="h-24 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation (center) */}
