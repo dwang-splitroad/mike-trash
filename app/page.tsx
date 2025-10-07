@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation"
 import { AddressChecker } from "@/components/address-checker"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Truck, Users, Leaf, Clock } from "lucide-react"
+import { Truck, Container, Sofa, Package, Users, Leaf, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -72,7 +72,7 @@ export default function HomePage() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <div className="w-6 h-6 bg-primary rounded-sm"></div>
+                  <Container className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle>Dumpster Rentals</CardTitle>
               </CardHeader>
@@ -89,7 +89,7 @@ export default function HomePage() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <div className="w-6 h-6 border-2 border-primary rounded"></div>
+                  <Sofa className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle>Bulk Pickup</CardTitle>
               </CardHeader>
@@ -104,7 +104,7 @@ export default function HomePage() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <div className="w-6 h-6 border-4 border-primary rounded-lg"></div>
+                  <Package className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle>Roll-Off Containers</CardTitle>
               </CardHeader>

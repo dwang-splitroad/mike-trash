@@ -7,13 +7,17 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Truck, CheckCircle, XCircle } from "lucide-react"
+import { Truck, CheckCircle, XCircle, AlertCircle } from "lucide-react"
+import { checkAddressInServiceZone, type GeocodingResult } from "@/lib/geocoding"
+import { ServiceZoneMapWrapper } from "@/components/service-zone-map-wrapper"
 
 export function AddressChecker() {
   const [address, setAddress] = useState("")
   const [isChecking, setIsChecking] = useState(false)
-  const [checkResult, setCheckResult] = useState<"in-service" | "out-of-service" | null>(null)
+  const [checkResult, setCheckResult] = useState<"in-service" | "out-of-service" | "error" | null>(null)
   const [showSignupForm, setShowSignupForm] = useState(false)
+  const [showMap, setShowMap] = useState(false)
+  const [userLocation, setUserLocation] = useState<GeocodingResult | null>(null)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,25 +27,36 @@ export function AddressChecker() {
     serviceType: "residential",
   })
 
-  // Mock service area check - in real implementation, this would use Google Maps API
   const checkServiceArea = async (address: string) => {
     setIsChecking(true)
+    setCheckResult(null)
+    setShowMap(false)
+    setUserLocation(null)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const result = await checkAddressInServiceZone(address)
 
-    // Mock logic - check if address contains Fulton County or Rochester keywords
-    const inService =
-      address.toLowerCase().includes("fulton") ||
-      address.toLowerCase().includes("rochester") ||
-      address.toLowerCase().includes("ny")
+      if (!result.geocodingResult) {
+        setCheckResult("error")
+        setIsChecking(false)
+        return
+      }
 
-    setCheckResult(inService ? "in-service" : "out-of-service")
-    setIsChecking(false)
+      setUserLocation(result.geocodingResult)
 
-    if (inService) {
-      setFormData((prev) => ({ ...prev, address }))
-      setShowSignupForm(true)
+      if (result.inZone) {
+        setCheckResult("in-service")
+        setFormData((prev) => ({ ...prev, address }))
+        setShowSignupForm(true)
+      } else {
+        setCheckResult("out-of-service")
+        setShowMap(true)
+      }
+    } catch (error) {
+      console.error("Error checking service area:", error)
+      setCheckResult("error")
+    } finally {
+      setIsChecking(false)
     }
   }
 
@@ -110,22 +125,38 @@ export function AddressChecker() {
                 className={`p-4 rounded-lg border ${
                   checkResult === "in-service"
                     ? "bg-green-50 border-green-200 text-green-800"
-                    : "bg-red-50 border-red-200 text-red-800"
+                    : checkResult === "error"
+                      ? "bg-yellow-50 border-yellow-200 text-yellow-800"
+                      : "bg-red-50 border-red-200 text-red-800"
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  {checkResult === "in-service" ? <CheckCircle className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
+                  {checkResult === "in-service" ? (
+                    <CheckCircle className="h-5 w-5" />
+                  ) : checkResult === "error" ? (
+                    <AlertCircle className="h-5 w-5" />
+                  ) : (
+                    <XCircle className="h-5 w-5" />
+                  )}
                   <span className="font-medium">
                     {checkResult === "in-service"
                       ? "Great news! We serve your area."
-                      : "Sorry, we don't currently serve this area."}
+                      : checkResult === "error"
+                        ? "Unable to verify address."
+                        : "Sorry, we don't currently serve this area."}
                   </span>
                 </div>
-                {checkResult === "out-of-service" && (
+                {checkResult === "error" && (
                   <p className="mt-2 text-sm">
-                    We're always expanding our service area. Contact us to be notified when we reach your neighborhood.
+                    Please check your address and try again. Make sure to include city and state.
                   </p>
                 )}
+              </div>
+            )}
+
+            {showMap && userLocation && (
+              <div className="mt-4">
+                <ServiceZoneMapWrapper userLocation={userLocation} />
               </div>
             )}
           </CardContent>
