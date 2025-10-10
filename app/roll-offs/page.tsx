@@ -10,7 +10,7 @@ export default function RollOffsPage() {
       <Navigation />
 
       {/* Get Services Section */}
-      <section className="bg-gradient-to-br from-primary via-emerald-600 to-emerald-700 py-12 sm:py-16 px-4 mt-0">
+      <section className="bg-emerald-50 py-12 sm:py-16 px-4 mt-0">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
             <div className="text-center mb-4 sm:mb-6">
