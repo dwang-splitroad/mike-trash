@@ -11,13 +11,13 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-muted/30 to-muted/60 py-20">
+      <section className="relative bg-gradient-to-br from-muted/30 to-muted/60 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight mb-4 sm:mb-6 px-2">
               Our <span className="text-primary">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground text-pretty">
+            <p className="text-lg sm:text-xl text-muted-foreground text-pretty px-4">
               Comprehensive waste management solutions for homes and businesses throughout Fulton County
             </p>
           </div>
@@ -25,16 +25,16 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 bg-background">
+      <section className="py-12 sm:py-16 bg-background">
         <div className="container mx-auto px-4">
           <ServiceIcons />
         </div>
       </section>
 
       {/* Detailed Services */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 sm:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Residential Pickup */}
             <Card>
               <CardHeader>
@@ -187,11 +187,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-background">
+      <section className="py-12 sm:py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Mike's Trash?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 px-2">Why Choose Mike's Trash?</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               <div className="text-center">
                 <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">30+ Years Experience</h3>
@@ -215,18 +215,18 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-12 sm:py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 opacity-90">Contact us today for a free quote on any of our services</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 px-2">Ready to Get Started?</h2>
+          <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 px-4">Contact us today for a free quote on any of our services</p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Check Your Address
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent w-full sm:w-auto"
             >
               Call (574) 223-6429
             </Button>

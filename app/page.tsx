@@ -12,7 +12,7 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 min-h-[500px] md:min-h-[600px]">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
         <div className="absolute inset-0 z-0">
           <Image
             src="/truck-street.jpg"
@@ -26,26 +26,26 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background"></div>
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 text-balance">
             Your Trusted Neighborhood
             <span className="block text-primary">Trash Service</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto text-pretty px-2">
             In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p>
 
-          <div className="mb-16">
+          <div className="mb-8 sm:mb-16">
             <AddressChecker />
           </div>
         </div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Complete Waste Management Solutions</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 px-2">Complete Waste Management Solutions</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               From weekly residential pickup to large commercial roll-offs, we handle all your waste management needs
               with care and professionalism.
             </p>
@@ -122,10 +122,10 @@ export default function HomePage() {
       </section>
 
       {/* Fleet & Team Showcase */}
-      <section className="py-12 px-4">
+      <section className="py-8 sm:py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">Meet Our Team & Fleet</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Meet Our Team & Fleet</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="rounded-2xl shadow-xl bg-card overflow-hidden relative aspect-[4/3]">
               <Image
                 src="/Owner smiling really big next to large trash truck.jpg"
@@ -153,16 +153,16 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-secondary/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Our Neighbors Say</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 px-2">What Our Neighbors Say</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               Don't just take our word for it - hear from our satisfied customers
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="text-4xl mb-4">"</div>
@@ -209,17 +209,17 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to experience the difference?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6 px-2">Ready to experience the difference?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button asChild size="lg" className="w-full sm:w-auto">
               <Link href="/about">Learn About Us</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
               <Link href="/contact">Get Started Today</Link>
             </Button>
           </div>
@@ -227,9 +227,9 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-12 px-4">
+      <footer className="bg-card border-t border-border py-8 sm:py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <div className="mb-4">
                 <Image

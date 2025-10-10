@@ -123,12 +123,12 @@ export default function FAQPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
+      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
             Find answers to common questions about our services. Can't find what you're looking for? We're here to help!
           </p>
         </div>
@@ -196,14 +196,14 @@ export default function FAQPage() {
       </section>
 
       {/* Additional Resources */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Additional Resources</h2>
-            <p className="text-lg text-muted-foreground">Everything you need to know about our services and policies</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Additional Resources</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">Everything you need to know about our services and policies</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <Card>
               <CardHeader className="text-center">
                 <Calendar className="h-8 w-8 text-primary mx-auto mb-2" />
@@ -264,23 +264,23 @@ export default function FAQPage() {
       </section>
 
       {/* Still Have Questions */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Still have questions?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Still have questions?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             We're your neighbors and we're here to help. Don't hesitate to reach out with any questions about our
             services.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto"
             >
               Send us a message
             </Link>
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors w-full sm:w-auto"
             >
               Check service availability
             </Link>

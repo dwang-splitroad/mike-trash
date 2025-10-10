@@ -73,10 +73,10 @@ export default function ReferralPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
+      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Refer a Neighbor</h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Refer a Neighbor</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
             Love our service? Share the neighborly care with friends and family. You'll both save money when they sign
             up!
           </p>
@@ -84,16 +84,16 @@ export default function ReferralPage() {
       </section>
 
       {/* Referral Benefits */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Everyone Wins!</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Everyone Wins!</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               When you refer someone and they sign up for service, you both get rewarded
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             <Card className="text-center border-primary/20 bg-primary/5">
               <CardHeader>
                 <Gift className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -122,9 +122,9 @@ export default function ReferralPage() {
           </div>
 
           {/* How It Works */}
-          <div className="bg-card p-8 rounded-2xl border border-border mb-16">
-            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">How the Referral Program Works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border mb-12 sm:mb-16">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">How the Referral Program Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary-foreground font-bold">1</span>
@@ -160,11 +160,11 @@ export default function ReferralPage() {
       </section>
 
       {/* Referral Form */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-4xl mx-auto">
           <Card className="shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Refer Someone Today</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">Refer Someone Today</CardTitle>
               <CardDescription>
                 Fill out the information below to refer a friend, family member, or neighbor to Mike's Trash Service
               </CardDescription>
@@ -304,15 +304,15 @@ export default function ReferralPage() {
       </section>
 
       {/* Social Sharing */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Spread the Word on Social Media</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Spread the Word on Social Media</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             Share your positive experience with Mike's Trash Service on social media and help your neighbors discover
             our clean, reliable service!
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-4">
             <Button onClick={() => shareOnSocial("facebook")} variant="outline" className="flex items-center gap-2">
               <div className="w-5 h-5 bg-blue-600 rounded"></div>
               Share on Facebook

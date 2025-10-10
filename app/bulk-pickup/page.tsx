@@ -9,29 +9,30 @@ export default function BulkPickupPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Zip CTA Bar */}
-      <section className="bg-accent/40 border-b border-border">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
-          <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Check your Zip now</h2>
-          <a href="#address-form" className="inline-flex">
-            <button className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2 font-medium shadow hover:opacity-90 transition">
-              Address Zip Form
-            </button>
-          </a>
+      {/* Get Services Section */}
+      <section className="bg-gradient-to-br from-primary via-emerald-600 to-emerald-700 py-12 sm:py-16 px-4 mt-0">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className="text-center mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 px-2">Get Services</h2>
+              <p className="text-muted-foreground">Check if we serve your area</p>
+            </div>
+            <AddressChecker />
+          </div>
         </div>
       </section>
 
       {/* Page Title */}
-      <section className="py-10 px-4">
+      <section className="py-6 sm:py-10 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Bulk Pickup</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2">Bulk Pickup</h1>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-8 px-4">
+      <section className="py-6 sm:py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-12 items-start mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 sm:gap-12 items-start mb-8 sm:mb-10">
             {/* Left: One-time Removal and Lists */}
             <div>
               <Card className="mb-8">
@@ -44,9 +45,9 @@ export default function BulkPickupPage() {
                 </CardContent>
               </Card>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
                 {/* Common Items */}
-                <div className="min-w-[320px]">
+                <div>
                   <h3 className="font-semibold text-foreground mb-3">Common Items:</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Old furniture (couches, chairs, tables, dressers)</li>
@@ -58,8 +59,8 @@ export default function BulkPickupPage() {
                 </div>
 
                 {/* Won't Take */}
-                <div className="min-w-[320px]">
-                  <h3 className="font-semibold text-foreground mb-3">Won’t Take:</h3>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Won't Take:</h3>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Oils</li>
                     <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Tires</li>
@@ -106,11 +107,11 @@ export default function BulkPickupPage() {
       </section>
 
       {/* Service Details */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Large Items, Careful Handling</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">Large Items, Careful Handling</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 Got a couch that won't fit through the door? Old appliances taking up space? We specialize in removing
                 large, bulky items that regular trash pickup can't handle. Our experienced team knows how to safely
@@ -164,9 +165,9 @@ export default function BulkPickupPage() {
           </div>
 
           {/* Fleet Showcase */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Professional Equipment & Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Professional Equipment & Team</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="rounded-2xl shadow-xl overflow-hidden relative aspect-[4/3]">
                 <Image
                   src="/Close up of front of large trash truck lights .jpg"
@@ -191,9 +192,9 @@ export default function BulkPickupPage() {
           </div>
 
           {/* What We Remove */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Items We Remove</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Items We Remove</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg">Furniture</CardTitle>
@@ -242,9 +243,9 @@ export default function BulkPickupPage() {
           </div>
 
           {/* How It Works */}
-          <div className="bg-card p-8 rounded-2xl border border-border mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">How Bulk Pickup Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border mb-12 sm:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">How Bulk Pickup Works</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="h-6 w-6 text-primary-foreground" />
@@ -278,8 +279,8 @@ export default function BulkPickupPage() {
           </div>
 
           {/* Testimonial */}
-          <div className="bg-primary/5 p-8 rounded-2xl text-center mb-16">
-            <blockquote className="text-lg text-foreground mb-4 italic">
+          <div className="bg-primary/5 p-6 sm:p-8 rounded-2xl text-center mb-12 sm:mb-16">
+            <blockquote className="text-base sm:text-lg text-foreground mb-4 italic px-2">
               "I was amazed at how carefully they removed our old sectional sofa. They protected our hardwood floors and
               even vacuumed up afterwards. You can tell they really care about doing the job right."
             </blockquote>
@@ -289,10 +290,10 @@ export default function BulkPickupPage() {
       </section>
 
       {/* Sign Up Section */}
-      <section className="py-16 px-4 bg-secondary/50" id="address-form">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Need large items removed?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50" id="address-form">
+        <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Need large items removed?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             Experience the difference of working with professionals who care about your property and community.
           </p>
         </div>

@@ -47,10 +47,10 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
+      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Get in Touch</h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Get in Touch</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
             We're your neighbors and we're here to help. Reach out with questions, service requests, or just to say
             hello!
           </p>
@@ -58,9 +58,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}
             <div>
               <Card className="shadow-lg">
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="firstName">First Name *</Label>
                         <Input
@@ -259,24 +259,24 @@ export default function ContactPage() {
       </section>
 
       {/* Emergency Contact */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Need immediate assistance?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Need immediate assistance?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             For urgent service issues or emergencies, don't hesitate to call us. We're here to help our neighbors when
             you need us most.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <a
               href="tel:+15855555MIKE"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto"
             >
               <Phone className="h-5 w-5 mr-2" />
               Call (585) 555-MIKE
             </a>
             <a
               href="mailto:hello@mikestrash.com"
-              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors w-full sm:w-auto"
             >
               <Mail className="h-5 w-5 mr-2" />
               Email Us

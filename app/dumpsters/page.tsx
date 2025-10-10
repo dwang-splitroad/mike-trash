@@ -9,30 +9,31 @@ export default function DumpstersPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Zip CTA Bar */}
-      <section className="bg-accent/40 border-b border-border">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
-          <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Check your Zip now</h2>
-          <a href="#address-form" className="inline-flex">
-            <button className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2 font-medium shadow hover:opacity-90 transition">
-              Address Zip Form
-            </button>
-          </a>
+      {/* Get Services Section */}
+      <section className="bg-gradient-to-br from-primary via-emerald-600 to-emerald-700 py-12 sm:py-16 px-4 mt-0">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className="text-center mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 px-2">Get Services</h2>
+              <p className="text-muted-foreground">Check if we serve your area</p>
+            </div>
+            <AddressChecker />
+          </div>
         </div>
       </section>
 
       {/* Page Title */}
-      <section className="py-10 px-4">
+      <section className="py-6 sm:py-10 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Dumpsters</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2">Dumpsters</h1>
         </div>
       </section>
 
       {/* Service Details */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Permanent Placement Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start mb-12 sm:mb-16">
             <Card className="border-2 border-primary/20">
               <CardHeader className="text-center bg-primary/5">
                 <CardTitle className="text-2xl text-primary">Permanent Placement Dumpsters</CardTitle>
@@ -98,9 +99,9 @@ export default function DumpstersPage() {
           </div>
 
           {/* Service in Action */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Our Service in Action</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Our Service in Action</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="overflow-hidden rounded-2xl shadow-xl relative aspect-[4/3]">
                 <Image
                   src="/Dumpster being emptied by large trash truck showcasing company logo.jpg"
@@ -188,7 +189,7 @@ export default function DumpstersPage() {
           </div> */}
 
           {/* Service Features */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 sm:mb-16">
             <Card className="text-center">
               <CardHeader>
                 <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
@@ -231,9 +232,9 @@ export default function DumpstersPage() {
           </div>
 
           {/* What We Accept */}
-          <div className="bg-card p-8 rounded-2xl border border-border mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">What Goes In Your Dumpster</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border mb-12 sm:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center px-2">What Goes In Your Dumpster</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-primary mb-4">✓ Accepted Materials</h3>
                 <ul className="space-y-2 text-muted-foreground">
@@ -260,10 +261,10 @@ export default function DumpstersPage() {
       </section>
 
       {/* Sign Up Section */}
-      <section className="py-16 px-4 bg-secondary/50">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Ready to rent a dumpster?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
+        <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Ready to rent a dumpster?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             Get started with your project today. We'll help you choose the right size and schedule delivery.
           </p>
         </div>

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Truck, CheckCircle, XCircle, AlertCircle } from "lucide-react"
+import { Truck, CheckCircle, XCircle, AlertCircle, Lock } from "lucide-react"
 import { checkAddressInServiceZone, type GeocodingResult } from "@/lib/geocoding"
 import { ServiceZoneMapWrapper } from "@/components/service-zone-map-wrapper"
 
@@ -46,7 +46,8 @@ export function AddressChecker() {
 
       if (result.inZone) {
         setCheckResult("in-service")
-        setFormData((prev) => ({ ...prev, address }))
+        // Use the official geocoded address (displayName) instead of user input
+        setFormData((prev) => ({ ...prev, address: result.geocodingResult.displayName }))
         setShowSignupForm(true)
       } else {
         setCheckResult("out-of-service")
@@ -62,24 +63,46 @@ export function AddressChecker() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In real implementation, this would send email to client
-    console.log("Signup form submitted:", formData)
-    alert(
-      "Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service.",
-    )
+    
+    try {
+      // Send signup data to API
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset form
-    setAddress("")
-    setCheckResult(null)
-    setShowSignupForm(false)
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      serviceType: "residential",
-    })
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit signup')
+      }
+
+      // Success
+      alert(
+        "Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service.",
+      )
+
+      // Reset form
+      setAddress("")
+      setCheckResult(null)
+      setShowSignupForm(false)
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        serviceType: "residential",
+      })
+    } catch (error: any) {
+      console.error('Signup submission error:', error)
+      alert(
+        "We're sorry, there was an error submitting your information. Please try again or call us at (574) 223-6429.",
+      )
+    }
   }
 
   return (
@@ -215,13 +238,26 @@ export function AddressChecker() {
               </div>
 
               <div>
-                <Label htmlFor="serviceAddress">Service Address</Label>
-                <Input
-                  id="serviceAddress"
-                  required
-                  value={formData.address}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
-                />
+                <Label htmlFor="serviceAddress" className="flex items-center gap-2">
+                  Service Address
+                  <span className="inline-flex items-center gap-1 text-xs font-normal text-green-600">
+                    <CheckCircle className="h-3 w-3" />
+                    Verified
+                  </span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="serviceAddress"
+                    required
+                    value={formData.address}
+                    disabled
+                    className="bg-green-50 border-green-200 text-foreground pr-10 cursor-not-allowed"
+                  />
+                  <Lock className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-600" />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  This is your verified address. Click "Back" to change it.
+                </p>
               </div>
 
               <div>

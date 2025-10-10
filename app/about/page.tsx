@@ -11,21 +11,21 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
+      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">About Us</h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">About Us</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
             A local, family-owned business serving the community for over 30 years
           </p>
         </div>
       </section>
 
       {/* Family Story */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 Mike's Trash is a local, family-owned business that has been serving the local community for over the past 30 years. In April of 2019, current owners Steve and Mandy Metzger purchased Mike's Trash, and have been working hard to continue growing and better serving our customers.
               </p>
@@ -85,16 +85,16 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Mike's Trash?</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Why Choose Mike's Trash?</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               Quality service and community commitment you can trust
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <Card className="text-center">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -135,16 +135,16 @@ export default function AboutPage() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Our Services</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               From residential to commercial - we have you covered
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <Card>
               <CardHeader>
                 <CardTitle>Residential Services</CardTitle>
@@ -205,17 +205,17 @@ export default function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Ready to get started?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Ready to get started?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-4">
             Contact us today to learn more about our services and how we can help with your trash removal needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button asChild size="lg" className="w-full sm:w-auto">
               <Link href="/contact">Contact Us</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
               <Link href="/">Check Service Availability</Link>
             </Button>
           </div>

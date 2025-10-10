@@ -10,12 +10,13 @@ export default function ResidentialPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section with Address Checker */}
-      <section className="bg-primary py-16 px-4">
+      {/* Get Services Section */}
+      <section className="bg-gradient-to-br from-primary via-emerald-600 to-emerald-700 py-12 sm:py-16 px-4 mt-0">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/95 p-8 rounded-2xl shadow-lg">
-            <div className="text-center mb-6">
-              <h2 className="text-3xl font-bold text-foreground mb-2">Check your Zip now</h2>
+          <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className="text-center mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 px-2">Get Services</h2>
+              <p className="text-muted-foreground">Check if we serve your area</p>
             </div>
             <AddressChecker />
           </div>
@@ -23,12 +24,12 @@ export default function ResidentialPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">Residential</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8 sm:mb-12 text-center px-2">Residential</h1>
 
           {/* Service Plans */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Weekly Service */}
             <Card className="border-2 border-primary/20">
               <CardHeader className="text-center bg-primary/5">
@@ -103,9 +104,9 @@ export default function ResidentialPage() {
           </Alert>
 
           {/* Visual Section */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Year-Round Reliable Service</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Year-Round Reliable Service</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
                 <Image
                   src="/clean-garbage-truck-on-residential-street.jpg"
@@ -140,15 +141,15 @@ export default function ResidentialPage() {
           </div>
 
           {/* About Mike's Trash */}
-          <div className="bg-primary text-primary-foreground p-8 rounded-2xl mb-12">
-            <p className="text-lg leading-relaxed">
+          <div className="bg-primary text-primary-foreground p-6 sm:p-8 rounded-2xl mb-8 sm:mb-12">
+            <p className="text-base sm:text-lg leading-relaxed">
               Mike's Trash provides a variety of affordable trash removal and dumpster services to Rochester and the surrounding counties. From residential to commercial, and even our Seasonal Lake Residents, our friendly and reliable staff can help find the right fit for you.
             </p>
           </div>
 
           {/* Guidelines */}
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-8">Guidelines</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 px-2">Guidelines</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3 p-4 bg-card rounded-lg border">
                 <div className="w-8 h-8 flex-shrink-0">

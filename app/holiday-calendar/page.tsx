@@ -71,10 +71,10 @@ export default function HolidayCalendarPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 px-4">
+      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Holiday Schedule</h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Holiday Schedule</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
             Stay informed about our holiday schedule so you never miss a pickup. We're committed to keeping you updated
             and your service running smoothly.
           </p>
@@ -103,14 +103,14 @@ export default function HolidayCalendarPage() {
       {/* Holiday Calendar */}
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">2025 Holiday Schedule</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">2025 Holiday Schedule</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               Plan ahead with our complete holiday calendar. We'll always notify customers of any schedule changes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {holidays2025.map((holiday, index) => (
               <Card key={index} className={holiday.status === "no-pickup" ? "border-orange-200 bg-orange-50" : ""}>
                 <CardHeader>
@@ -154,9 +154,9 @@ export default function HolidayCalendarPage() {
       </section>
 
       {/* Additional Information */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -188,22 +188,22 @@ export default function HolidayCalendarPage() {
             </Card>
           </div>
 
-          <div className="text-center mt-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Questions about the schedule?</h3>
-            <p className="text-lg text-muted-foreground mb-6">
+          <div className="text-center mt-8 sm:mt-12">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4 px-2">Questions about the schedule?</h3>
+            <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6 px-4">
               We're here to help! Contact us if you have questions about holiday pickups or need to update your contact
               information.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto"
               >
                 Contact Us
               </a>
               <a
                 href="/faq"
-                className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors w-full sm:w-auto"
               >
                 View FAQ
               </a>
