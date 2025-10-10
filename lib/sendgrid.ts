@@ -378,6 +378,7 @@ Contact the customer to confirm service details and schedule their first pickup.
 
   const msg = {
     to: 'dennis@splitroadmedia.com',
+    cc: 'trevor@splitroadmedia.com',
     from: {
       email: 'noreply@splitroadmedia.com', // Using verified Split Road Media sender
       name: "Mike's Trash Service"
