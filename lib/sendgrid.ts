@@ -321,7 +321,7 @@ export async function sendServiceSignupEmail(data: ServiceSignupData) {
               <div class="info-row">
                 <div class="info-label">Service Type</div>
                 <div class="info-value">
-                  <span class="service-badge">${getServiceTypeLabel(data.serviceType)}</span>
+                  <span class="service-badge" style="display: inline-block; background-color: #16a34a; color: #ffffff; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.3);">${getServiceTypeLabel(data.serviceType)}</span>
                 </div>
               </div>
             </div>
