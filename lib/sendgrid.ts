@@ -198,14 +198,15 @@ export async function sendServiceSignupEmail(data: ServiceSignupData) {
           .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-            color: white;
-            padding: 14px 32px;
+            color: white !important;
+            padding: 14px 28px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            margin: 5px;
           }
           .cta-button:hover {
             transform: translateY(-2px);
@@ -218,7 +219,7 @@ export async function sendServiceSignupEmail(data: ServiceSignupData) {
           }
           .footer {
             background-color: #f9fafb;
-            padding: 30px;
+            padding: 20px 30px;
             text-align: center;
             border-top: 1px solid #e5e7eb;
           }
@@ -271,88 +272,95 @@ export async function sendServiceSignupEmail(data: ServiceSignupData) {
               display: block;
               margin-bottom: 15px;
             }
+            .cta-button {
+              display: block;
+              width: 100%;
+              margin: 10px 0 !important;
+            }
           }
         </style>
       </head>
       <body>
-        <div class="email-wrapper">
+        <div class="email-wrapper" style="border: 3px solid #16a34a; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
           <!-- Header -->
-          <div class="header">
-            <div class="header-content">
-              <div class="truck-icon">🚛</div>
-              <h1>New Service Signup!</h1>
-              <p>Mike's Trash Service</p>
+          <div class="header" style="background-color: #16a34a; color: #ffffff; padding: 40px 30px; text-align: center;">
+            <div class="header-content" style="position: relative; z-index: 1;">
+              <div class="truck-icon" style="font-size: 48px; margin-bottom: 10px;">🚛</div>
+              <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 10px 0 5px 0;">New Customer Signup</h1>
+              <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 0; opacity: 0.95;">Website Form Submission</p>
             </div>
           </div>
 
           <!-- Content -->
-          <div class="content">
+          <div class="content" style="padding: 40px 30px; background-color: #ffffff;">
+            <!-- Service Type Badge - Prominent -->
+            <div style="text-align: center; margin-bottom: 30px;">
+              <div style="font-size: 13px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; background-color: transparent;">SERVICE REQUESTED</div>
+              <span style="display: inline-block; background-color: #16a34a; color: #ffffff; padding: 14px 32px; border-radius: 30px; font-weight: 700; font-size: 18px; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);">${getServiceTypeLabel(data.serviceType)}</span>
+            </div>
+
             <!-- Alert Banner -->
-            <div class="alert-banner">
-              <div class="alert-text">
-                Address verified and ready for service setup!
+            <div class="alert-banner" style="background-color: #ecfdf5; border-left: 4px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px;">
+              <div class="alert-text" style="color: #15803d; font-weight: 600; font-size: 15px;">
+                ✓ Address verified and within service area
               </div>
             </div>
 
+            <div class="divider" style="height: 1px; background-color: #e5e7eb; margin: 30px 0;"></div>
+
             <!-- Customer Information -->
-            <h2 class="section-title">📋 Customer Information</h2>
+            <h2 class="section-title" style="font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e5e7eb;">Customer Details</h2>
             
             <div class="info-grid">
               <div class="info-row">
-                <div class="info-label">Customer Name</div>
-                <div class="info-value">${data.firstName} ${data.lastName}</div>
+                <div class="info-label">Name</div>
+                <div class="info-value" style="font-size: 18px; font-weight: 600; color: #111827;">${data.firstName} ${data.lastName}</div>
               </div>
               <div class="info-row">
-                <div class="info-label">Email Address</div>
+                <div class="info-label">Phone</div>
+                <div class="info-value">
+                  <a href="tel:${data.phone}" style="font-size: 17px;">${data.phone}</a>
+                </div>
+              </div>
+              <div class="info-row">
+                <div class="info-label">Email</div>
                 <div class="info-value">
                   <a href="mailto:${data.email}">${data.email}</a>
                 </div>
               </div>
               <div class="info-row">
-                <div class="info-label">Phone Number</div>
-                <div class="info-value">
-                  <a href="tel:${data.phone}">${data.phone}</a>
-                </div>
-              </div>
-              <div class="info-row">
-                <div class="info-label">Service Address</div>
-                <div class="info-value">${data.address}</div>
-              </div>
-              <div class="info-row">
-                <div class="info-label">Service Type</div>
-                <div class="info-value">
-                  <span class="service-badge" style="display: inline-block; background-color: #16a34a; color: #ffffff; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.3);">${getServiceTypeLabel(data.serviceType)}</span>
-                </div>
+                <div class="info-label">Address</div>
+                <div class="info-value" style="line-height: 1.6;">${data.address}</div>
               </div>
             </div>
 
-            <div class="divider"></div>
+            <div class="divider" style="height: 1px; background-color: #e5e7eb; margin: 30px 0;"></div>
 
             <!-- Call to Action -->
-            <div class="cta-section">
-              <div class="cta-title">⚡ Action Required</div>
-              <div class="cta-text">
-                Contact this customer within 24 hours to confirm service details and schedule their first pickup.
+            <div class="cta-section" style="background-color: #fef3c7; border-radius: 12px; padding: 24px; margin-top: 30px; text-align: center; border: 2px solid #fbbf24;">
+              <div class="cta-title" style="font-size: 18px; font-weight: 700; color: #92400e; margin-bottom: 10px;">Next Steps</div>
+              <div class="cta-text" style="color: #78350f; font-size: 14px; margin-bottom: 20px;">
+                Contact this customer to confirm service details, pricing, and schedule their first pickup.
               </div>
-              <a href="tel:${data.phone}" class="cta-button">Call Customer Now</a>
+              <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <a href="tel:${data.phone}" class="cta-button" style="display: inline-block; background-color: #16a34a; color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin: 5px;">📞 Call Now</a>
+                <a href="mailto:${data.email}" class="cta-button" style="display: inline-block; background-color: #667eea; color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin: 5px;">✉️ Send Email</a>
+              </div>
             </div>
           </div>
 
           <!-- Footer -->
-          <div class="footer">
-            <div class="footer-logo">Mike's Trash Service</div>
-            <div class="footer-text">
-              This notification was automatically generated from your website's service signup form.
-            </div>
-            <div class="contact-info">
-              <a href="tel:+15742236429" class="contact-item">📞 (574) 223-6429</a>
-              <a href="mailto:info@mikestrashllc.com" class="contact-item">✉️ Email Us</a>
-            </div>
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-              <p style="color: #9ca3af; font-size: 12px;">
-                © ${new Date().getFullYear()} Mike's Trash Service. All rights reserved.
-              </p>
-            </div>
+          <div class="footer" style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+            <p style="color: #6b7280; font-size: 13px; margin: 0;">
+              Submitted: ${new Date().toLocaleString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit'
+              })}
+            </p>
           </div>
         </div>
       </body>
@@ -411,4 +419,5 @@ function getServiceTypeLabel(serviceType: string): string {
 }
 
 export default sgMail
+
 
