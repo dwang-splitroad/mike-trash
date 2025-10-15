@@ -10,19 +10,24 @@ export default function FAQPage() {
       category: "Service & Pickup",
       questions: [
         {
-          question: "When will my trash be picked up?",
+          question: "Is there a trash bag limit?",
           answer:
-            "Mike's Trash pick-up limit is based off of the service you choose when you signed up for service. Below are the limits for each service option: Mike's Toter = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up every week. Once A Month Service = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up once a month.",
+            "Mike's Trash pick-up limit is based off of the service you choose when you signed up for service. Below are the limits for each service option:\n\nMike's Toter = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up every week\n\nOnce A Month Service = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up once a month",
         },
         {
           question: "What time should I put out the trash?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "ALL Trash must be placed out the night before your pick-up day or by 6:00 a.m. the day of. If trash is not out, it will NOT be picked up until your next scheduled pick-up day.",
+        },
+        {
+          question: "When will my trash be picked up?",
+          answer:
+            "The time of day for your trash pick-up will depend on a number of factors. Please have your trash out by 6:00 a.m. the day of to ensure your trash will be picked up.",
         },
         {
           question: "Can I leave items beside my toter?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Make sure that all trash to be taken is in the Toter/Can. Garbage or waste left beside toters or cans will not be collected unless you have called the office a day before your pick-up to arrange for extra to be taken.",
         },
       ],
     },
@@ -30,14 +35,14 @@ export default function FAQPage() {
       category: "Trash Collection Guidelines",
       questions: [
         {
-          question: "Is there a trash bag limit?",
-          answer:
-            "Mike's Trash pick-up limit is based off of the service you choose when you signed up for service. Below are the limits for each service option: Mike's Toter = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up every week. Once A Month Service = Six to Eight 13-gallon kitchen bags that all fit inside the Mike's Toter picked up once a month.",
-        },
-        {
           question: "What about loose trash?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "ALL trash must be bagged, boxed, or bundled. NO loose trash, NO cans, or bags over 50 pounds. If a bag is too HEAVY for one person to lift, it will NOT be taken.",
+        },
+        {
+          question: "What items do NOT go into the trash?",
+          answer:
+            "There are many items that the landfill will not accept, including the following: Microwaves, TV's, Refrigerators, Liquid Paint, Hazardous Waste, Yard Waste, Batteries, Tires, and Propane Tanks. We also cannot haul Concrete, Bricks, Cast Iron, and Solid Steel as it damages the compactors in our trucks.",
         },
       ],
     },
@@ -47,17 +52,17 @@ export default function FAQPage() {
         {
           question: "How do I dispose of a used mattress or old toilet? Can I schedule these to be picked up?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Large item pickups are available. Terms, fees, and conditions will apply. Please call our office for pricing. Plan to make arrangements at least one day in advance to ensure pick-up.",
         },
         {
           question: "Do you offer one-time pick-ups?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Yes! We do offer irregular pick-ups. Price is based on the amount that needs to be picked up. Please call the office for pricing and to schedule a pick-up.",
         },
         {
           question: "Can you dump a dumpster that I own?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Yes! Mike's Trash can dump customer owned dumpsters on an as needed basis. Please contact the office for pricing and to schedule.",
         },
       ],
     },
@@ -67,7 +72,7 @@ export default function FAQPage() {
         {
           question: "Who is responsible for the toter or dumpster? Mike's Trash or me?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "The customer is responsible for their toter or dumpster while in service from Mike's Trash. (Do NOT use containers for burning.) Report any suspicious activity around dumpsters. If the Mike's toter and/or dumpster is not returned when service is cancelled or terminated, the customer will be charged replacement cost for the Mike's Toter and/or dumpster.",
         },
       ],
     },
@@ -77,7 +82,7 @@ export default function FAQPage() {
         {
           question: "What happens if there is bad weather?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "We try our best to pick up everyone one their scheduled route days. If there is a travel ban in effect, Mike's Trash will not be able to service certain areas when unsafe or dangerous road conditions occur due to bad weather. Visit (and like) https://www.facebook.com/Mikes-Trash-LLC-102106594774291/ for up-to-date information.",
         },
       ],
     },
@@ -87,7 +92,7 @@ export default function FAQPage() {
         {
           question: "When is the office open? Where is the office located?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "The office is open Monday, Tuesday, & Thursday from 8:00 a.m. to 4:00 p.m., Wednesday from 8:30 a.m. to 4:00 p.m., and Friday 8:00 a.m. to 12:00 p.m. Our office is located at 824 Main Street in Rochester, Indiana directly across from the Fulton County Courthouse. We do offer an after-hours drop slot on the office door for after-hours payments.",
         },
       ],
     },
@@ -97,12 +102,12 @@ export default function FAQPage() {
         {
           question: "Do you offer email billing?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Yes! You can choose to sign up for e-billing and have your trash bill emailed directly to your inbox rather than receiving it by mail! Even better, you can access your bill online any time! Contact the office at 574-223-6429 or email mikestrash@rtcol.com to get signed up!\n\nThe benefits of e-billing:\n• Access bills 24/7 online, including current account balance and payment history\n• Spend less time sorting through mail\n• Help us keep rates lower by avoiding postal fees",
         },
         {
           question: "Do you offer Autopay?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Yes! You can set up autopay via ACH direct draft payments or with a credit/debit card (a 3.99% fee is charged for all credit/debit card payments). Just call the office to get signed up!",
         },
       ],
     },
@@ -112,7 +117,7 @@ export default function FAQPage() {
         {
           question: "I just got a text from Mike's trash, is this legit?",
           answer:
-            "Answer will be provided soon. Please contact us for information.",
+            "Yes! We do send out reminders via text and you can ALSO text us any questions, if you prefer! The number to text is (574) 301-3899. Text messages will only be returned during business hours.",
         },
       ],
     },
@@ -155,11 +160,11 @@ export default function FAQPage() {
                     Contact Us
                   </Link>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+15742236429"
                     className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors"
                   >
                     <Phone className="h-4 w-4" />
-                    Call Now
+                    Call (574) 223-6429
                   </a>
                 </div>
               </div>
@@ -185,7 +190,7 @@ export default function FAQPage() {
                       <span className="font-medium text-foreground">{faq.question}</span>
                     </AccordionTrigger>
                     <AccordionContent className="pb-4">
-                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                      <div className="text-muted-foreground leading-relaxed whitespace-pre-line">{faq.answer}</div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -207,7 +212,7 @@ export default function FAQPage() {
             <Card>
               <CardHeader className="text-center">
                 <Calendar className="h-8 w-8 text-primary mx-auto mb-2" />
-                <CardTitle>Holiday Schedule</CardTitle>
+                <CardTitle>Holiday Calendar</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-center mb-4">
@@ -247,15 +252,17 @@ export default function FAQPage() {
             <Card>
               <CardHeader className="text-center">
                 <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
-                <CardTitle>Service Hours</CardTitle>
+                <CardTitle>Office Hours</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-center mb-4">
-                  Learn about our pickup times and customer service hours
+                  Our office hours and location
                 </CardDescription>
-                <div className="text-center text-sm text-muted-foreground">
-                  <p>Pickup: 7 AM - 5 PM</p>
-                  <p>Office: Mon-Fri 8 AM - 5 PM</p>
+                <div className="text-center text-sm text-muted-foreground space-y-1">
+                  <p className="font-semibold">824 Main Street, Rochester, IN</p>
+                  <p>Mon, Tue, Thu: 8:00 AM - 4:00 PM</p>
+                  <p>Wed: 8:30 AM - 4:00 PM</p>
+                  <p>Fri: 8:00 AM - 12:00 PM</p>
                 </div>
               </CardContent>
             </Card>
