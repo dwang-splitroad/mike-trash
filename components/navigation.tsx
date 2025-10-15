@@ -29,7 +29,7 @@ export function Navigation() {
           <div className="flex items-center gap-2 text-sm font-medium">
             <Phone className="h-4 w-4" />
             <a href="tel:574-223-6429" className="hover:underline">
-              (574)223-6429
+              (574) 223-6429
             </a>
           </div>
         </div>
@@ -65,7 +65,7 @@ export function Navigation() {
             {/* Make Payment Button (right) */}
             <div className="hidden lg:block flex-shrink-0">
               <Button asChild>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">
                   Make a Payment
                 </a>
               </Button>
@@ -96,7 +96,7 @@ export function Navigation() {
               ))}
               <div className="pt-3 pb-1">
                 <Button asChild className="w-full">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">
                     Make a Payment
                   </a>
                 </Button>

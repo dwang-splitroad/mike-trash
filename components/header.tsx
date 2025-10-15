@@ -65,7 +65,7 @@ export function Header() {
           {/* Make Payment Button */}
           <div className="hidden md:block">
             <Button variant="secondary" asChild>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">
                 Make a Payment
               </a>
             </Button>
@@ -112,7 +112,7 @@ export function Header() {
             </Link>
             <div className="pt-2">
               <Button variant="secondary" asChild className="w-full">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">
                   Make a Payment
                 </a>
               </Button>

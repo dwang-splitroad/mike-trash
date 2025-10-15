@@ -10,8 +10,15 @@ export default function ResidentialPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
+      {/* Page Title */}
+      <section className="py-8 sm:py-12 px-4 mt-0">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-center px-2">Residential</h1>
+        </div>
+      </section>
+
       {/* Get Services Section */}
-      <section className="bg-emerald-50 py-12 sm:py-16 px-4 mt-0">
+      <section className="bg-emerald-50 py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
             <div className="text-center mb-4 sm:mb-6">
@@ -26,7 +33,6 @@ export default function ResidentialPage() {
       {/* Main Content */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8 sm:mb-12 text-center px-2">Residential</h1>
 
           {/* Service Plans */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
@@ -161,7 +167,7 @@ export default function ResidentialPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground">
-                  Set your trash to the curb/road the night before or by 6am on your pickup day.
+                  Set your toter/trash can to the curb/road the night before or by 6am on your pickup day.
                 </p>
               </div>
 
@@ -175,7 +181,7 @@ export default function ResidentialPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground">
-                  Make sure your toter/trash can is 4 feet way from any objects (trees, mailboxes, fences, other poles, etc.)
+                  Make sure your toter/trash can is 4 feet way from any objects (trees, mailboxes, fences, poles, etc.)
                 </p>
               </div>
 
@@ -189,7 +195,7 @@ export default function ResidentialPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground">
-                  Place the Toter wheels/handle facing your house/away from the road.
+                  Place the toter/trash can wheels/handle facing your house/away from the road.
                 </p>
               </div>
 

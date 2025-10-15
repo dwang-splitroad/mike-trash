@@ -18,6 +18,7 @@ export function AddressChecker() {
   const [showSignupForm, setShowSignupForm] = useState(false)
   const [showMap, setShowMap] = useState(false)
   const [userLocation, setUserLocation] = useState<GeocodingResult | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -63,6 +64,7 @@ export function AddressChecker() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
     try {
       // Send signup data to API
@@ -102,6 +104,8 @@ export function AddressChecker() {
       alert(
         "We're sorry, there was an error submitting your information. Please try again or call us at (574) 223-6429.",
       )
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -276,8 +280,8 @@ export function AddressChecker() {
               </div>
 
               <div className="flex gap-2 pt-4">
-                <Button type="submit" className="flex-1">
-                  Sign Up for Service
+                <Button type="submit" className="flex-1" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Sign Up for Service"}
                 </Button>
                 <Button
                   type="button"

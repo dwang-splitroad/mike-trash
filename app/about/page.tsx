@@ -27,10 +27,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Mike's Trash is a local, family-owned business that has been serving the local community for over the past 30 years. In April of 2019, current owners Steve and Mandy Metzger purchased Mike's Trash, and have been working hard to continue growing and better serving our customers.
+                Mike's Trash is a local, family-owned business that has been serving the local community for over 30 years. In April of 2019, current owners Steve and Mandy Metzger purchased Mike's Trash, and have been working hard to continue growing and better serving our customers.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
-                At Mike's Trash, we strive to provide quality, reliable trash removal to our customers.
+                At Mike's Trash, we strive to provide quality and reliable trash removal to our customers.
               </p>
               <p className="text-lg text-muted-foreground">
                 Mike's Trash provides a variety of affordable trash removal and dumpster services to Rochester and the surrounding areas. From residential to commercial, and even our Seasonal Lake Residents, our friendly and reliable staff can help you find the right fit for your trash removal needs.

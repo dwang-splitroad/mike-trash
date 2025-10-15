@@ -9,8 +9,15 @@ export default function BulkPickupPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
+      {/* Page Title */}
+      <section className="py-8 sm:py-12 px-4 mt-0">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-center px-2">Bulk Pickup</h1>
+        </div>
+      </section>
+
       {/* Get Services Section */}
-      <section className="bg-emerald-50 py-12 sm:py-16 px-4 mt-0">
+      <section className="bg-emerald-50 py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
             <div className="text-center mb-4 sm:mb-6">
@@ -19,13 +26,6 @@ export default function BulkPickupPage() {
             </div>
             <AddressChecker />
           </div>
-        </div>
-      </section>
-
-      {/* Page Title */}
-      <section className="py-6 sm:py-10 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2">Bulk Pickup</h1>
         </div>
       </section>
 

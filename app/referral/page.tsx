@@ -26,29 +26,55 @@ export default function ReferralPage() {
     referredAddress: "",
     relationship: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In real implementation, this would send email to client
-    console.log("Referral form submitted:", formData)
-    alert(
-      "Thank you for referring a neighbor to Mike's Trash Service! We'll contact both you and your referral soon. Your referral credit will be applied once they sign up for service.",
-    )
+    setIsSubmitting(true)
+    
+    try {
+      // Send referral data to API
+      const response = await fetch('/api/referral', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset form
-    setFormData({
-      referrerFirstName: "",
-      referrerLastName: "",
-      referrerEmail: "",
-      referrerPhone: "",
-      referrerAddress: "",
-      referredFirstName: "",
-      referredLastName: "",
-      referredEmail: "",
-      referredPhone: "",
-      referredAddress: "",
-      relationship: "",
-    })
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit referral')
+      }
+
+      // Success
+      alert(
+        "Thank you for referring a neighbor to Mike's Trash Service! We'll contact both you and your referral soon. Your referral credit will be applied once they sign up for service.",
+      )
+
+      // Reset form
+      setFormData({
+        referrerFirstName: "",
+        referrerLastName: "",
+        referrerEmail: "",
+        referrerPhone: "",
+        referrerAddress: "",
+        referredFirstName: "",
+        referredLastName: "",
+        referredEmail: "",
+        referredPhone: "",
+        referredAddress: "",
+        relationship: "",
+      })
+    } catch (error: any) {
+      console.error('Referral form submission error:', error)
+      alert(
+        "We're sorry, there was an error submitting your referral. Please try again or call us at (574) 223-6429.",
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const shareOnSocial = (platform: string) => {
@@ -294,8 +320,8 @@ export default function ReferralPage() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
-                  Submit Referral
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Referral"}
                 </Button>
               </form>
             </CardContent>

@@ -73,9 +73,9 @@ export default function HolidayCalendarPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Holiday Schedule</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Holiday Calendar</h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
-            Stay informed about our holiday schedule so you never miss a pickup. We're committed to keeping you updated
+            Stay informed about our holiday calendar so you never miss a pickup. We're committed to keeping you updated
             and your service running smoothly.
           </p>
         </div>
@@ -90,9 +90,7 @@ export default function HolidayCalendarPage() {
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Important Holiday Information</h3>
                 <p className="text-muted-foreground">
-                  When we don't collect on a holiday, your pickup will be moved to the next business day. Please have
-                  your bins out by 7 AM on the makeup day. We appreciate your understanding as we spend time with our
-                  families during these special days.
+                  Trash collection moves to the next business day following a No Pickup holiday. Please have your bins out by 7 AM on the makeup day. We appreciate your understanding as we spend time with our families during these special days.
                 </p>
               </div>
             </div>
@@ -104,9 +102,9 @@ export default function HolidayCalendarPage() {
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">2025 Holiday Schedule</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">2025 Holiday Calendar</h2>
             <p className="text-base sm:text-lg text-muted-foreground px-4">
-              Plan ahead with our complete holiday calendar. We'll always notify customers of any schedule changes.
+              Plan ahead with our complete holiday calendar. We'll always notify customers of any calendar changes.
             </p>
           </div>
 
@@ -189,7 +187,7 @@ export default function HolidayCalendarPage() {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4 px-2">Questions about the schedule?</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4 px-2">Questions about the calendar?</h3>
             <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6 px-4">
               We're here to help! Contact us if you have questions about holiday pickups or need to update your contact
               information.

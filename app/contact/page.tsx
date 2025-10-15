@@ -21,25 +21,51 @@ export default function ContactPage() {
     serviceType: "general",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In real implementation, this would send email to client
-    console.log("Contact form submitted:", formData)
-    alert(
-      "Thank you for contacting Mike's Trash Service! We'll get back to you within 24 hours. We appreciate your interest in our neighborly service.",
-    )
+    setIsSubmitting(true)
+    
+    try {
+      // Send contact data to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      serviceType: "general",
-      message: "",
-    })
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit contact form')
+      }
+
+      // Success
+      alert(
+        "Thank you for contacting Mike's Trash Service! We'll get back to you within 24 hours. We appreciate your interest in our neighborly service.",
+      )
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        serviceType: "general",
+        message: "",
+      })
+    } catch (error: any) {
+      console.error('Contact form submission error:', error)
+      alert(
+        "We're sorry, there was an error submitting your message. Please try again or call us at (574) 223-6429.",
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -158,8 +184,8 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full">
-                      Send Message
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>
@@ -176,7 +202,7 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-semibold text-foreground mb-2">(585) 555-MIKE</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">(574) 223-6429</p>
                   <p className="text-muted-foreground">
                     Call us for immediate assistance, service requests, or any questions about our services.
                   </p>
@@ -206,9 +232,9 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-semibold text-foreground mb-2">Fulton County & Rochester, NY</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">Fulton County & Rochester, Indiana</p>
                   <p className="text-muted-foreground">
-                    We proudly serve our neighbors throughout Fulton County and Rochester. Use our address checker to
+                    We proudly serve our neighbors throughout Fulton County and Rochester, Indiana. Use our address checker to
                     confirm service availability.
                   </p>
                 </CardContent>
@@ -268,18 +294,11 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <a
-              href="tel:+15855555MIKE"
+              href="tel:+15742236429"
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (585) 555-MIKE
-            </a>
-            <a
-              href="mailto:hello@mikestrash.com"
-              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors w-full sm:w-auto"
-            >
-              <Mail className="h-5 w-5 mr-2" />
-              Email Us
+              Call (574) 223-6429
             </a>
           </div>
         </div>
