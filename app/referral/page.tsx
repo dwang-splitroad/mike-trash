@@ -351,19 +351,47 @@ export default function ReferralPage() {
               <div className="w-5 h-5 bg-blue-700 rounded"></div>
               Share on LinkedIn
             </Button>
-            <Button onClick={() => shareOnSocial("email")} variant="outline" className="flex items-center gap-2">
-              <Share2 className="w-5 h-5" />
-              Share via Email
-            </Button>
           </div>
 
-          <div className="bg-primary/5 p-6 rounded-lg border border-primary/20">
-            <Star className="h-8 w-8 text-primary mx-auto mb-4" />
-            <p className="text-muted-foreground italic">
-              "I love Mike's Trash Service! They're clean, reliable, and truly care about our neighborhood. Check if
-              they serve your area!"
-            </p>
-          </div>
+          <Card className="max-w-3xl mx-auto border-2 shadow-lg">
+            <CardContent className="p-6 sm:p-8">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md flex-shrink-0">
+                  M
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
+                    <h3 className="font-bold text-lg text-foreground">Mason Barlow</h3>
+                    <span className="text-sm text-muted-foreground">4 years ago</span>
+                  </div>
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-foreground leading-relaxed mb-4">
+                Yall. If you haven't checked out Mike's Trash Service yet, you need to! I forgot to take my trash can out to the road today. I was at work when I realized that. I had it by my house (about 50 feet from the road). I came home to see that they went out of their way, pulled their truck up to my house, and emptied the can for me! Best customer service by far!
+              </p>
+              
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  ✓ Punctuality
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  ✓ Quality
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  ✓ Professionalism
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  ✓ Value
+                </span>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>

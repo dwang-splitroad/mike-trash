@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation"
 import { AddressChecker } from "@/components/address-checker"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Truck, Container, Sofa, Package, Users, Leaf, Clock } from "lucide-react"
+import { Truck, Container, Sofa, Package, Users, Leaf, Clock, Star, Quote } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -163,43 +163,58 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-4xl mb-4">"</div>
-                <p className="text-xl font-semibold text-foreground mb-4">just amazing</p>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+            <Card className="relative hover:shadow-xl transition-shadow duration-300 border-2">
+              <CardContent className="pt-6 pb-6">
+                <Quote className="h-10 w-10 text-primary/40 mb-4" />
+                <div className="flex gap-1 mb-4 justify-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-base text-foreground mb-6 leading-relaxed">"Mike's is great to work with. They've never missed a pickup and there very reasonably priced! Very nice people!"</p>
+                <div className="flex items-center justify-center gap-3 mt-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">D</div>
                   <div className="text-left">
-                    <p className="text-sm font-medium text-foreground">The</p>
-                    <p className="text-xs text-muted-foreground">User Location</p>
+                    <p className="text-sm font-semibold text-foreground">Derrell Young</p>
+                    <p className="text-xs text-muted-foreground">Rochester, IN</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-4xl mb-4">"</div>
-                <p className="text-xl font-semibold text-foreground mb-4">the best</p>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+            <Card className="relative hover:shadow-xl transition-shadow duration-300 border-2">
+              <CardContent className="pt-6 pb-6">
+                <Quote className="h-10 w-10 text-primary/40 mb-4" />
+                <div className="flex gap-1 mb-4 justify-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-base text-foreground mb-6 leading-relaxed">"I've been with Mike's for many years. They provide excellent service. Good people to work with. Give them a try."</p>
+                <div className="flex items-center justify-center gap-3 mt-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">R</div>
                   <div className="text-left">
-                    <p className="text-sm font-medium text-foreground">The</p>
-                    <p className="text-xs text-muted-foreground">User Location</p>
+                    <p className="text-sm font-semibold text-foreground">Randy Rush</p>
+                    <p className="text-xs text-muted-foreground">Rochester, IN</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-4xl mb-4">"</div>
-                <p className="text-xl font-semibold text-foreground mb-4">number one</p>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
+            <Card className="relative hover:shadow-xl transition-shadow duration-300 border-2">
+              <CardContent className="pt-6 pb-6">
+                <Quote className="h-10 w-10 text-primary/40 mb-4" />
+                <div className="flex gap-1 mb-4 justify-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-base text-foreground mb-6 leading-relaxed">"Mikes Trash is great! They care about the local community and the garbage guys are always friendly!"</p>
+                <div className="flex items-center justify-center gap-3 mt-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">B</div>
                   <div className="text-left">
-                    <p className="text-sm font-medium text-foreground">The</p>
-                    <p className="text-xs text-muted-foreground">User Location</p>
+                    <p className="text-sm font-semibold text-foreground">Bettina Zabel</p>
+                    <p className="text-xs text-muted-foreground">Rochester, IN</p>
                   </div>
                 </div>
               </CardContent>
@@ -300,14 +315,14 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Contact</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li>Fulton County & Rochester, NY</li>
+                <li>Fulton County & Rochester, IN</li>
                 <li>
                   <Link href="/contact" className="hover:text-foreground">
                     Get in Touch
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground">
+                  <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
                     Make a Payment
                   </a>
                 </li>

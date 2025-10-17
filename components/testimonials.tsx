@@ -4,18 +4,18 @@ import { Star } from "lucide-react"
 export function Testimonials() {
   const testimonials = [
     {
-      quote: "Just amazing service! Mike's team is always reliable and professional.",
-      author: "Sarah Johnson",
+      quote: "Mike's is great to work with. They've never missed a pickup and there very reasonably priced! Very nice people!",
+      author: "Derrell Young",
       location: "Rochester, IN",
     },
     {
-      quote: "The best trash service in Fulton County. Family-owned and it shows!",
-      author: "Mike Thompson",
-      location: "Fulton County",
+      quote: "I've been with Mike's for many years. They provide excellent service. Good people to work with. Give them a try.",
+      author: "Randy Rush",
+      location: "Rochester, IN",
     },
     {
-      quote: "Number one choice for waste management. Clean, efficient, and neighborly.",
-      author: "Lisa Davis",
+      quote: "Mikes Trash is great! They care about the local community and the garbage guys are always friendly!",
+      author: "Bettina Zabel",
       location: "Rochester, IN",
     },
   ]

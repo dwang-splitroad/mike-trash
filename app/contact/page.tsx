@@ -217,7 +217,7 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-semibold text-foreground mb-2">hello@mikestrash.com</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">mikestrash@rtcol.com</p>
                   <p className="text-muted-foreground">
                     Send us an email and we'll respond within 24 hours. Perfect for non-urgent questions.
                   </p>
@@ -228,14 +228,14 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-primary" />
-                    Service Area
+                    Office Location
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-semibold text-foreground mb-2">Fulton County & Rochester, Indiana</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">824 Main Street</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">Rochester, Indiana 46975</p>
                   <p className="text-muted-foreground">
-                    We proudly serve our neighbors throughout Fulton County and Rochester, Indiana. Use our address checker to
-                    confirm service availability.
+                    Our office is located directly across from the Fulton County Courthouse. We offer an after-hours drop slot on the office door for payments.
                   </p>
                 </CardContent>
               </Card>
@@ -244,22 +244,34 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    Business Hours
+                    Office Hours
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Office Hours:</span>
-                      <span className="font-medium">Mon-Fri 8 AM - 5 PM</span>
+                      <span className="text-muted-foreground">Monday:</span>
+                      <span className="font-medium">8:00 AM - 4:00 PM</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Pickup Service:</span>
-                      <span className="font-medium">Mon-Fri 7 AM - 5 PM</span>
+                      <span className="text-muted-foreground">Tuesday:</span>
+                      <span className="font-medium">8:00 AM - 4:00 PM</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Emergency:</span>
-                      <span className="font-medium">24/7 On-Call</span>
+                      <span className="text-muted-foreground">Wednesday:</span>
+                      <span className="font-medium">8:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Thursday:</span>
+                      <span className="font-medium">8:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Friday:</span>
+                      <span className="font-medium">8:00 AM - 12:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Sat - Sun:</span>
+                      <span className="font-medium">Closed</span>
                     </div>
                   </div>
                 </CardContent>

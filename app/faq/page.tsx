@@ -92,7 +92,7 @@ export default function FAQPage() {
         {
           question: "When is the office open? Where is the office located?",
           answer:
-            "The office is open Monday, Tuesday, & Thursday from 8:00 a.m. to 4:00 p.m., Wednesday from 8:30 a.m. to 4:00 p.m., and Friday 8:00 a.m. to 12:00 p.m. Our office is located at 824 Main Street in Rochester, Indiana directly across from the Fulton County Courthouse. We do offer an after-hours drop slot on the office door for after-hours payments.",
+            "The office is open Monday through Thursday from 8:00 a.m. to 4:00 p.m., and Friday 8:00 a.m. to 12:00 p.m. Our office is located at 824 Main Street in Rochester, Indiana 46975 directly across from the Fulton County Courthouse. We do offer an after-hours drop slot on the office door for after-hours payments.",
         },
       ],
     },
@@ -102,7 +102,7 @@ export default function FAQPage() {
         {
           question: "Do you offer email billing?",
           answer:
-            "Yes! You can choose to sign up for e-billing and have your trash bill emailed directly to your inbox rather than receiving it by mail! Even better, you can access your bill online any time! Contact the office at 574-223-6429 or email mikestrash@rtcol.com to get signed up!\n\nThe benefits of e-billing:\n• Access bills 24/7 online, including current account balance and payment history\n• Spend less time sorting through mail\n• Help us keep rates lower by avoiding postal fees",
+            "Yes! You can choose to sign up for e-billing and have your trash bill emailed directly to your inbox rather than receiving it by mail! Even better, you can access your bill online any time! Contact the office at (574) 223-6429 or email mikestrash@rtcol.com to get signed up!\n\nThe benefits of e-billing:\n• Access bills 24/7 online, including current account balance and payment history\n• Spend less time sorting through mail\n• Help us keep rates lower by avoiding postal fees",
         },
         {
           question: "Do you offer Autopay?",
@@ -259,10 +259,10 @@ export default function FAQPage() {
                   Our office hours and location
                 </CardDescription>
                 <div className="text-center text-sm text-muted-foreground space-y-1">
-                  <p className="font-semibold">824 Main Street, Rochester, IN</p>
-                  <p>Mon, Tue, Thu: 8:00 AM - 4:00 PM</p>
-                  <p>Wed: 8:30 AM - 4:00 PM</p>
+                  <p className="font-semibold">824 Main Street, Rochester, IN 46975</p>
+                  <p>Mon - Thu: 8:00 AM - 4:00 PM</p>
                   <p>Fri: 8:00 AM - 12:00 PM</p>
+                  <p>Sat - Sun: Closed</p>
                 </div>
               </CardContent>
             </Card>
