@@ -19,20 +19,20 @@ export default function HomePage() {
             alt="Mike's Trash truck on street"
             fill
             sizes="100vw"
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center opacity-35"
             quality={85}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/80"></div>
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 text-balance">
             Your Trusted Neighborhood
             <span className="block text-primary">Trash Service</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto text-pretty px-2">
+          {/* <p className="text-lg sm:text-xl md:text-2xl text-black mb-8 sm:mb-12 max-w-3xl mx-auto text-pretty px-2 font-semibold" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5)' }}>
             In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
-          </p>
+          </p> */}
 
           <div className="mb-8 sm:mb-16">
             <AddressChecker />
