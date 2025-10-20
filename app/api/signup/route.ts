@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendServiceSignupEmail } from '@/lib/sendgrid'
+import { sendServiceSignupEmail, sendCustomerWelcomeEmail } from '@/lib/sendgrid'
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,18 +24,28 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send email via SendGrid
-    await sendServiceSignupEmail({
-      firstName,
-      lastName,
-      email,
-      phone,
-      address,
-      serviceType,
-    })
+    // Send both emails: one to company, one to customer
+    await Promise.all([
+      sendServiceSignupEmail({
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        serviceType,
+      }),
+      sendCustomerWelcomeEmail({
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        serviceType,
+      })
+    ])
 
     return NextResponse.json(
-      { success: true, message: 'Signup email sent successfully' },
+      { success: true, message: 'Signup processed successfully' },
       { status: 200 }
     )
   } catch (error: any) {

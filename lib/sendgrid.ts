@@ -722,8 +722,8 @@ export async function sendReferralEmail(data: ReferralFormData) {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
           }
           .header {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #000000;
             padding: 40px 30px;
             text-align: center;
           }
@@ -808,13 +808,13 @@ export async function sendReferralEmail(data: ReferralFormData) {
         </style>
       </head>
       <body>
-        <div class="email-wrapper" style="border: 3px solid #f59e0b; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+        <div class="email-wrapper" style="border: 3px solid #fbbf24; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
           <!-- Header -->
-          <div class="header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #ffffff; padding: 40px 30px; text-align: center;">
+          <div class="header" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #000000; padding: 40px 30px; text-align: center;">
             <div style="position: relative; z-index: 1;">
               <div style="font-size: 48px; margin-bottom: 10px;">🎁</div>
-              <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 10px 0 5px 0;">New Referral Received!</h1>
-              <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 0; opacity: 0.95;">Customer Referral Program</p>
+              <h1 style="color: #000000; font-size: 28px; font-weight: 700; margin: 10px 0 5px 0;">New Referral Received!</h1>
+              <p style="color: #000000; font-size: 16px; font-weight: 500; margin: 0; opacity: 0.85;">Customer Referral Program</p>
             </div>
           </div>
 
@@ -993,6 +993,283 @@ function getContactTypeLabel(serviceType: string): string {
     compliment: 'Compliment',
   }
   return labels[serviceType] || serviceType
+}
+
+// Customer Welcome Email
+export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to Mike's Trash Service!</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+          }
+          .email-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+          }
+          .header {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+          }
+          .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 10px 0;
+            color: #ffffff;
+          }
+          .content {
+            padding: 40px 30px;
+          }
+          .welcome-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-left: 4px solid #16a34a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+          }
+          .welcome-box h2 {
+            color: #15803d;
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+          .welcome-box p {
+            color: #166534;
+            font-size: 16px;
+            line-height: 1.8;
+          }
+          .service-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 20px 0;
+          }
+          .info-section {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid #e5e7eb;
+          }
+          .info-section h3 {
+            color: #111827;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 700;
+          }
+          .info-section ul {
+            list-style: none;
+            padding: 0;
+          }
+          .info-section li {
+            padding: 8px 0;
+            color: #374151;
+            line-height: 1.6;
+          }
+          .info-section li::before {
+            content: '✓';
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 5px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          }
+          .contact-box {
+            background-color: #fef3c7;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #fbbf24;
+          }
+          .contact-box h3 {
+            color: #92400e;
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+          .contact-box p {
+            color: #78350f;
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+          .footer {
+            background-color: #f9fafb;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+          }
+          .footer-text {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.8;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="email-wrapper">
+          <!-- Header -->
+          <div class="header">
+            <div style="font-size: 64px; margin-bottom: 10px;">🚛</div>
+            <h1>Welcome to Mike's Trash Service!</h1>
+            <p style="color: rgba(255,255,255,0.95); font-size: 18px; margin-top: 10px;">Thank you for choosing us, ${data.firstName}!</p>
+          </div>
+
+          <!-- Content -->
+          <div class="content">
+            <!-- Welcome Message -->
+            <div class="welcome-box">
+              <h2>We're Excited to Serve You! 🎉</h2>
+              <p>
+                Thank you for submitting your service request. We've received your information and one of our team members will contact you shortly to finalize the details and schedule your first pickup.
+              </p>
+            </div>
+
+            <!-- Service Type -->
+            <div style="text-align: center; margin: 30px 0;">
+              <div style="font-size: 13px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">YOUR REQUESTED SERVICE</div>
+              <span class="service-badge">${getServiceTypeLabel(data.serviceType)}</span>
+            </div>
+
+            <!-- What Happens Next -->
+            <div class="info-section">
+              <h3>📋 What Happens Next</h3>
+              <ul>
+                <li><strong>Within 24-48 hours:</strong> We'll call you to confirm your service details and pricing</li>
+                <li><strong>Service Setup:</strong> We'll schedule your first pickup and arrange delivery of any necessary equipment</li>
+                <li><strong>Get Started:</strong> Your reliable trash service begins on your scheduled pickup day</li>
+              </ul>
+            </div>
+
+            <!-- Why You'll Love Us -->
+            <div class="info-section">
+              <h3>💚 Why You'll Love Mike's Trash</h3>
+              <ul>
+                <li><strong>Over 30 Years of Service:</strong> Trusted by Fulton County and Rochester families</li>
+                <li><strong>Friendly & Reliable:</strong> We never miss a pickup and treat our customers like neighbors</li>
+                <li><strong>Fair Pricing:</strong> Transparent, competitive rates with no hidden fees</li>
+                <li><strong>Local Family Business:</strong> We live and work in the community we serve</li>
+              </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-box">
+              <h3>Have Questions?</h3>
+              <p><strong>Call us:</strong> (574) 223-6429</p>
+              <p><strong>Email:</strong> info@mikestrashservice.com</p>
+              <p style="font-size: 14px; margin-top: 15px;">We're here to help Monday through Friday, 8 AM - 5 PM</p>
+            </div>
+
+            <!-- Your Details -->
+            <div style="background-color: #f9fafb; border-radius: 8px; padding: 20px; margin: 20px 0; border: 1px solid #e5e7eb;">
+              <h3 style="color: #111827; font-size: 16px; margin-bottom: 12px; font-weight: 600;">Your Service Address</h3>
+              <p style="color: #374151; line-height: 1.6; margin: 0;">${data.address}</p>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="footer">
+            <p class="footer-text">
+              <strong>Mike's Trash Service</strong><br>
+              Serving Fulton County & Rochester, IN<br>
+              Phone: (574) 223-6429<br>
+              <a href="https://www.trashbilling.com" style="color: #16a34a; text-decoration: none;">Make a Payment</a>
+            </p>
+            <p style="color: #9ca3af; font-size: 12px; margin-top: 20px;">
+              This email was sent because you submitted a service request on our website.
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `
+
+  const textContent = `
+Welcome to Mike's Trash Service!
+
+Hi ${data.firstName},
+
+Thank you for choosing Mike's Trash Service! We've received your service request and we're excited to serve you.
+
+YOUR REQUESTED SERVICE: ${getServiceTypeLabel(data.serviceType)}
+SERVICE ADDRESS: ${data.address}
+
+WHAT HAPPENS NEXT:
+- Within 24-48 hours, we'll call you to confirm your service details and pricing
+- We'll schedule your first pickup and arrange delivery of any necessary equipment
+- Your reliable trash service begins on your scheduled pickup day
+
+WHY YOU'LL LOVE MIKE'S TRASH:
+✓ Over 30 Years of Service - Trusted by Fulton County and Rochester families
+✓ Friendly & Reliable - We never miss a pickup
+✓ Fair Pricing - Transparent rates with no hidden fees
+✓ Local Family Business - We live and work in the community we serve
+
+HAVE QUESTIONS?
+Call us: (574) 223-6429
+Email: info@mikestrashservice.com
+Hours: Monday through Friday, 8 AM - 5 PM
+
+We look forward to serving you!
+
+Mike's Trash Service
+Serving Fulton County & Rochester, IN
+  `
+
+  const msg = {
+    to: data.email,
+    from: {
+      email: 'noreply@splitroadmedia.com',
+      name: "Mike's Trash Service"
+    },
+    subject: `Welcome to Mike's Trash Service! 🚛`,
+    text: textContent,
+    html: htmlContent,
+  }
+
+  try {
+    await sgMail.send(msg)
+    return { success: true }
+  } catch (error: any) {
+    console.error('SendGrid Error (Customer Welcome):', error)
+    if (error.response) {
+      console.error('SendGrid Error Body:', error.response.body)
+    }
+    throw new Error('Failed to send customer welcome email')
+  }
 }
 
 export default sgMail

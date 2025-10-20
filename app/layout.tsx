@@ -11,7 +11,11 @@ export const metadata: Metadata = {
   description:
     "Family-owned trash service in Fulton County and Rochester. Residential pickup, dumpsters, bulk pickup, and roll-offs. Clean, reliable, neighborly service.",
   keywords: "Fulton County, Rochester, Trash, Trash Pick up, Mikes Trash, Dumpster, Roll-off, couch, residential",
-    generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/apple-icon.svg',
+  },
 }
 
 export default function RootLayout({

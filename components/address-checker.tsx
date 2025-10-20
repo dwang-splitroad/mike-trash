@@ -2,14 +2,16 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Truck, CheckCircle, XCircle, AlertCircle, Lock } from "lucide-react"
-import { checkAddressInServiceZone, type GeocodingResult } from "@/lib/geocoding"
+import { Truck, CheckCircle, XCircle, AlertCircle, Lock, MapPin } from "lucide-react"
+import { checkAddressInServiceZone, getAddressSuggestions, type GeocodingResult, type AddressSuggestion } from "@/lib/geocoding"
 import { ServiceZoneMapWrapper } from "@/components/service-zone-map-wrapper"
+import { FormSuccess } from "@/components/form-success"
+import { FormError } from "@/components/form-error"
 
 export function AddressChecker() {
   const [address, setAddress] = useState("")
@@ -19,6 +21,11 @@ export function AddressChecker() {
   const [showMap, setShowMap] = useState(false)
   const [userLocation, setUserLocation] = useState<GeocodingResult | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([])
+  const [showSuggestions, setShowSuggestions] = useState(false)
+  const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false)
+  const suggestionsRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -27,12 +34,78 @@ export function AddressChecker() {
     address: "",
     serviceType: "residential",
   })
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [showError, setShowError] = useState(false)
+
+  // Debounce function for address suggestions
+  const debounceTimeout = useRef<NodeJS.Timeout | null>(null)
+
+  const fetchSuggestions = useCallback(async (query: string) => {
+    if (query.trim().length < 3) {
+      setSuggestions([])
+      setShowSuggestions(false)
+      return
+    }
+
+    setIsLoadingSuggestions(true)
+    try {
+      const results = await getAddressSuggestions(query)
+      setSuggestions(results)
+      setShowSuggestions(results.length > 0)
+    } catch (error) {
+      console.error("Error fetching address suggestions:", error)
+      setSuggestions([])
+    } finally {
+      setIsLoadingSuggestions(false)
+    }
+  }, [])
+
+  const handleAddressChange = (value: string) => {
+    setAddress(value)
+    setCheckResult(null)
+    
+    // Clear previous timeout
+    if (debounceTimeout.current) {
+      clearTimeout(debounceTimeout.current)
+    }
+
+    // Set new timeout for debounced search
+    debounceTimeout.current = setTimeout(() => {
+      fetchSuggestions(value)
+    }, 300)
+  }
+
+  const handleSuggestionClick = (suggestion: AddressSuggestion) => {
+    setAddress(suggestion.displayName)
+    setShowSuggestions(false)
+    setSuggestions([])
+  }
+
+  // Click outside to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowSuggestions(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   const checkServiceArea = async (address: string) => {
     setIsChecking(true)
     setCheckResult(null)
     setShowMap(false)
     setUserLocation(null)
+    setShowSuggestions(false)
 
     try {
       const result = await checkAddressInServiceZone(address)
@@ -83,9 +156,7 @@ export function AddressChecker() {
       }
 
       // Success
-      alert(
-        "Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service.",
-      )
+      setShowSuccess(true)
 
       // Reset form
       setAddress("")
@@ -101,16 +172,37 @@ export function AddressChecker() {
       })
     } catch (error: any) {
       console.error('Signup submission error:', error)
-      alert(
-        "We're sorry, there was an error submitting your information. Please try again or call us at (574) 223-6429.",
-      )
+      setShowError(true)
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  const handleSuccessClose = () => {
+    setShowSuccess(false)
+  }
+
+  const handleErrorClose = () => {
+    setShowError(false)
+  }
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <>
+      {showSuccess && (
+        <FormSuccess
+          title="Service Request Submitted!"
+          message="Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service. You should also receive a welcome email with more details."
+          onClose={handleSuccessClose}
+        />
+      )}
+      {showError && (
+        <FormError
+          title="Submission Error"
+          message="We're sorry, there was an error submitting your information. Please try again or call us at (574) 223-6429."
+          onClose={handleErrorClose}
+        />
+      )}
+      <div className="w-full max-w-2xl mx-auto">
       {!showSignupForm ? (
         <Card className="shadow-lg">
           <CardHeader className="text-center">
@@ -120,31 +212,66 @@ export function AddressChecker() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex gap-2">
-              <Input
-                placeholder="Enter your address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="flex-1"
-                disabled={isChecking}
-              />
-              <Button
-                onClick={() => checkServiceArea(address)}
-                disabled={!address.trim() || isChecking}
-                className="relative overflow-hidden"
-              >
-                {isChecking ? (
-                  <div className="flex items-center gap-2">
-                    <Truck className={`h-4 w-4 ${isChecking ? "truck-animation" : ""}`} />
-                    Checking...
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <Truck className="h-4 w-4" />
-                    Check Area
-                  </div>
-                )}
-              </Button>
+            <div className="relative">
+              <div className="flex gap-2">
+                <div className="flex-1 relative">
+                  <Input
+                    ref={inputRef}
+                    placeholder="Enter your address (e.g., 123 Main St, Rochester, IN)"
+                    value={address}
+                    onChange={(e) => handleAddressChange(e.target.value)}
+                    className="flex-1"
+                    disabled={isChecking}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && address.trim()) {
+                        checkServiceArea(address)
+                      }
+                    }}
+                  />
+                  {isLoadingSuggestions && (
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                      <div className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full"></div>
+                    </div>
+                  )}
+                </div>
+                <Button
+                  onClick={() => checkServiceArea(address)}
+                  disabled={!address.trim() || isChecking}
+                  className="relative overflow-hidden"
+                >
+                  {isChecking ? (
+                    <div className="flex items-center gap-2">
+                      <Truck className={`h-4 w-4 ${isChecking ? "truck-animation" : ""}`} />
+                      Checking...
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Truck className="h-4 w-4" />
+                      Check Area
+                    </div>
+                  )}
+                </Button>
+              </div>
+              
+              {/* Address Suggestions Dropdown */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div
+                  ref={suggestionsRef}
+                  className="absolute z-50 w-full mt-1 bg-white border border-border rounded-lg shadow-lg max-h-64 overflow-y-auto"
+                >
+                  {suggestions.map((suggestion, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className="w-full text-left px-4 py-3 hover:bg-secondary/50 transition-colors border-b border-border last:border-b-0 flex items-start gap-2"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{suggestion.displayName}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {checkResult && (
@@ -298,6 +425,7 @@ export function AddressChecker() {
           </CardContent>
         </Card>
       )}
-    </div>
+      </div>
+    </>
   )
 }

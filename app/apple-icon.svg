@@ -1,0 +1,27 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="40" fill="#16a34a"/>
+  
+  <!-- Main truck body -->
+  <rect x="30" y="70" width="80" height="50" rx="8" fill="#15803d"/>
+  
+  <!-- Truck cabin -->
+  <rect x="100" y="60" width="45" height="60" rx="8" fill="#166534"/>
+  
+  <!-- Front window -->
+  <rect x="105" y="65" width="35" height="25" rx="4" fill="#d1fae5"/>
+  
+  <!-- Wheels -->
+  <circle cx="55" cy="130" r="15" fill="#1f2937"/>
+  <circle cx="55" cy="130" r="8" fill="#6b7280"/>
+  <circle cx="120" cy="130" r="15" fill="#1f2937"/>
+  <circle cx="120" cy="130" r="8" fill="#6b7280"/>
+  
+  <!-- Trash can icon on side -->
+  <rect x="45" y="80" width="20" height="25" rx="2" fill="#f0fdf4"/>
+  <rect x="50" y="77" width="10" height="3" rx="1" fill="#f0fdf4"/>
+  
+  <!-- Decorative lines -->
+  <line x1="35" y1="85" x2="95" y2="85" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+  <line x1="35" y1="95" x2="95" y2="95" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+</svg>
+

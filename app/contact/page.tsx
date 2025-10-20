@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react"
 import { useState } from "react"
+import { FormSuccess } from "@/components/form-success"
+import { FormError } from "@/components/form-error"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,6 +24,8 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -44,9 +48,7 @@ export default function ContactPage() {
       }
 
       // Success
-      alert(
-        "Thank you for contacting Mike's Trash Service! We'll get back to you within 24 hours. We appreciate your interest in our neighborly service.",
-      )
+      setShowSuccess(true)
 
       // Reset form
       setFormData({
@@ -60,17 +62,38 @@ export default function ContactPage() {
       })
     } catch (error: any) {
       console.error('Contact form submission error:', error)
-      alert(
-        "We're sorry, there was an error submitting your message. Please try again or call us at (574) 223-6429.",
-      )
+      setShowError(true)
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  const handleSuccessClose = () => {
+    setShowSuccess(false)
+  }
+
+  const handleErrorClose = () => {
+    setShowError(false)
+  }
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      {showSuccess && (
+        <FormSuccess
+          title="Message Sent!"
+          message="Thank you for contacting Mike's Trash Service! We'll get back to you within 24 hours. We appreciate your interest in our neighborly service."
+          onClose={handleSuccessClose}
+        />
+      )}
+      {showError && (
+        <FormError
+          title="Submission Error"
+          message="We're sorry, there was an error submitting your message. Please try again or call us at (574) 223-6429."
+          onClose={handleErrorClose}
+        />
+      )}
+      <div className="min-h-screen bg-background">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
@@ -315,6 +338,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

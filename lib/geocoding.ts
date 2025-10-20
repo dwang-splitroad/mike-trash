@@ -7,6 +7,60 @@ export interface GeocodingResult {
   displayName: string
 }
 
+export interface AddressSuggestion {
+  displayName: string
+  latitude: number
+  longitude: number
+}
+
+/**
+ * Get address suggestions for autocomplete
+ * Returns multiple matching addresses
+ */
+export async function getAddressSuggestions(query: string): Promise<AddressSuggestion[]> {
+  if (!query || query.trim().length < 3) {
+    return []
+  }
+
+  try {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/search?` +
+        new URLSearchParams({
+          q: query,
+          format: "json",
+          limit: "5",
+          addressdetails: "1",
+          countrycodes: "us", // Limit to US addresses
+        }),
+      {
+        headers: {
+          "User-Agent": "MikesTrashService/1.0",
+        },
+      }
+    )
+
+    if (!response.ok) {
+      console.error("Address suggestions API error:", response.statusText)
+      return []
+    }
+
+    const data = await response.json()
+
+    if (!data || data.length === 0) {
+      return []
+    }
+
+    return data.map((result: any) => ({
+      displayName: result.display_name,
+      latitude: parseFloat(result.lat),
+      longitude: parseFloat(result.lon),
+    }))
+  } catch (error) {
+    console.error("Error getting address suggestions:", error)
+    return []
+  }
+}
+
 /**
  * Geocode an address using OpenStreetMap Nominatim API
  * Free service, no API key required

@@ -19,11 +19,11 @@ export default function HomePage() {
             alt="Mike's Trash truck on street"
             fill
             sizes="100vw"
-            className="object-cover object-center opacity-15"
+            className="object-cover object-center opacity-40"
             quality={85}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/90"></div>
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 text-balance">

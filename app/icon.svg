@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main truck body -->
+  <rect x="4" y="12" width="16" height="10" rx="2" fill="#16a34a"/>
+  
+  <!-- Truck cabin -->
+  <rect x="18" y="10" width="8" height="12" rx="2" fill="#15803d"/>
+  
+  <!-- Front window -->
+  <rect x="19" y="11" width="6" height="4" rx="1" fill="#d1fae5"/>
+  
+  <!-- Wheels -->
+  <circle cx="9" cy="24" r="3" fill="#1f2937"/>
+  <circle cx="9" cy="24" r="1.5" fill="#6b7280"/>
+  <circle cx="22" cy="24" r="3" fill="#1f2937"/>
+  <circle cx="22" cy="24" r="1.5" fill="#6b7280"/>
+  
+  <!-- Trash can icon on side -->
+  <rect x="7" y="14" width="4" height="5" rx="0.5" fill="#f0fdf4"/>
+  <rect x="8" y="13.5" width="2" height="0.5" fill="#f0fdf4"/>
+</svg>
+

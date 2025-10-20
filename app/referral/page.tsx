@@ -9,6 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Gift, Users, Share2, DollarSign, Heart, Star } from "lucide-react"
 import { useState } from "react"
+import { FormSuccess } from "@/components/form-success"
+import { FormError } from "@/components/form-error"
 
 export default function ReferralPage() {
   const [formData, setFormData] = useState({
@@ -27,6 +29,8 @@ export default function ReferralPage() {
     relationship: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,9 +53,7 @@ export default function ReferralPage() {
       }
 
       // Success
-      alert(
-        "Thank you for referring a neighbor to Mike's Trash Service! We'll contact both you and your referral soon. Your referral credit will be applied once they sign up for service.",
-      )
+      setShowSuccess(true)
 
       // Reset form
       setFormData({
@@ -69,12 +71,18 @@ export default function ReferralPage() {
       })
     } catch (error: any) {
       console.error('Referral form submission error:', error)
-      alert(
-        "We're sorry, there was an error submitting your referral. Please try again or call us at (574) 223-6429.",
-      )
+      setShowError(true)
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleSuccessClose = () => {
+    setShowSuccess(false)
+  }
+
+  const handleErrorClose = () => {
+    setShowError(false)
   }
 
   const shareOnSocial = (platform: string) => {
@@ -95,14 +103,29 @@ export default function ReferralPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      {showSuccess && (
+        <FormSuccess
+          title="Referral Submitted!"
+          message="Thank you for referring a neighbor to Mike's Trash Service! We'll contact both you and your referral soon. Your $25 credit will be applied once they sign up for service."
+          onClose={handleSuccessClose}
+        />
+      )}
+      {showError && (
+        <FormError
+          title="Submission Error"
+          message="We're sorry, there was an error submitting your referral. Please try again or call us at (574) 223-6429."
+          onClose={handleErrorClose}
+        />
+      )}
+      <div className="min-h-screen bg-background">
+        <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-12 sm:py-16 px-4">
+      <section className="bg-gradient-to-b from-green-50 to-background py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance px-2">Refer a Neighbor</h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 text-balance px-2">Refer a Neighbor</h1>
+          <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 text-pretty px-4">
             Love our service? Share the neighborly care with friends and family. You'll both save money when they sign
             up!
           </p>
@@ -394,6 +417,7 @@ export default function ReferralPage() {
           </Card>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

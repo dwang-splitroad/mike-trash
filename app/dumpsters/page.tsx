@@ -16,16 +16,10 @@ export default function DumpstersPage() {
         </div>
       </section>
 
-      {/* Get Services Section */}
-      <section className="bg-emerald-50 py-12 sm:py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/95 p-6 sm:p-8 rounded-2xl shadow-lg">
-            <div className="text-center mb-4 sm:mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 px-2">Get Services</h2>
-              <p className="text-muted-foreground">Check if we serve your area</p>
-            </div>
-            <AddressChecker />
-          </div>
+      {/* Address Checker Section */}
+      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
+        <div className="max-w-2xl mx-auto">
+          <AddressChecker />
         </div>
       </section>
 
