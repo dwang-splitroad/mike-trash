@@ -388,7 +388,7 @@ Contact the customer to confirm service details and schedule their first pickup.
     to: 'dennis@splitroadmedia.com',
     cc: 'trevor@splitroadmedia.com',
     from: {
-      email: 'noreply@splitroadmedia.com', // Using verified Split Road Media sender
+      email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
     subject: `New Service Signup: ${data.firstName} ${data.lastName} - ${getServiceTypeLabel(data.serviceType)}`,
@@ -657,7 +657,7 @@ Submitted: ${new Date().toLocaleString()}
     to: 'dennis@splitroadmedia.com',
     cc: 'trevor@splitroadmedia.com',
     from: {
-      email: 'noreply@splitroadmedia.com',
+      email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
     subject: `New Contact: ${data.firstName} ${data.lastName} - ${getContactTypeLabel(data.serviceType)}`,
@@ -951,7 +951,7 @@ Submitted: ${new Date().toLocaleString()}
     to: 'dennis@splitroadmedia.com',
     cc: 'trevor@splitroadmedia.com',
     from: {
-      email: 'noreply@splitroadmedia.com',
+      email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
     subject: `New Referral: ${data.referrerFirstName} ${data.referrerLastName} → ${data.referredFirstName} ${data.referredLastName}`,
@@ -1252,7 +1252,7 @@ Serving Fulton County & Rochester, IN
   const msg = {
     to: data.email,
     from: {
-      email: 'noreply@splitroadmedia.com',
+      email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
     subject: `Welcome to Mike's Trash Service! 🚛`,
