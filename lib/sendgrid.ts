@@ -385,8 +385,8 @@ Contact the customer to confirm service details and schedule their first pickup.
   `
 
   const msg = {
-    to: 'dennis@splitroadmedia.com',
-    cc: 'trevor@splitroadmedia.com',
+    to: 'mikestrash@rtcol.com',
+    cc: 'dennis@splitroadmedia.com',
     from: {
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
@@ -654,8 +654,8 @@ Submitted: ${new Date().toLocaleString()}
   `
 
   const msg = {
-    to: 'dennis@splitroadmedia.com',
-    cc: 'trevor@splitroadmedia.com',
+    to: 'mikestrash@rtcol.com',
+    cc: 'dennis@splitroadmedia.com',
     from: {
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
@@ -948,8 +948,8 @@ Submitted: ${new Date().toLocaleString()}
   `
 
   const msg = {
-    to: 'dennis@splitroadmedia.com',
-    cc: 'trevor@splitroadmedia.com',
+    to: 'mikestrash@rtcol.com',
+    cc: 'dennis@splitroadmedia.com',
     from: {
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
