@@ -18,7 +18,7 @@ export default function ResidentialPage() {
       </section>
 
       {/* Address Checker Section */}
-      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <AddressChecker />
         </div>
@@ -103,8 +103,8 @@ export default function ResidentialPage() {
             </AlertDescription>
           </Alert>
 
-          {/* Visual Section */}
-          <div className="mb-8 sm:mb-12">
+          {/* Visual Section - Hidden on mobile */}
+          <div className="mb-8 sm:mb-12 hidden md:block">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Year-Round Reliable Service</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
@@ -112,7 +112,7 @@ export default function ResidentialPage() {
                   src="/clean-garbage-truck-on-residential-street.jpg"
                   alt="Clean truck on residential street"
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="33vw"
                   className="object-cover"
                   quality={95}
                 />
@@ -122,7 +122,7 @@ export default function ResidentialPage() {
                   src="/Trash bin in snow.jpg"
                   alt="Service even in winter weather"
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="33vw"
                   className="object-cover"
                   quality={95}
                 />
@@ -132,7 +132,7 @@ export default function ResidentialPage() {
                   src="/Wide shot of large trash truck with driver entering.jpg"
                   alt="Professional Mike's Trash service"
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="33vw"
                   className="object-cover"
                   quality={95}
                 />

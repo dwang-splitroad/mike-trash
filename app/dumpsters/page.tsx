@@ -17,7 +17,7 @@ export default function DumpstersPage() {
       </section>
 
       {/* Address Checker Section */}
-      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <AddressChecker />
         </div>
@@ -27,73 +27,75 @@ export default function DumpstersPage() {
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Permanent Placement Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start mb-12 sm:mb-16">
-            <Card className="border-2 border-primary/20">
-              <CardHeader className="text-center bg-primary/5">
-                <CardTitle className="text-2xl text-primary">Permanent Placement Dumpsters</CardTitle>
-                <CardDescription>Reliable long-term dumpster service</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-4 mb-4">
-                  <div className="font-semibold">2-Yard Dumpster</div>
-                  <div className="font-semibold">3-Yard Dumpster</div>
-                  <div className="font-semibold">6-Yard Dumpster</div>
-                </div>
-                <p className="text-muted-foreground mb-6">
-                  Mike's Trash offers 2-yard, 3-yard, and 6-yard rear-load dumpsters for long-term Permanent
-                  Placement. We can dump locations within-in the Rochester City limits up to 5x per week. For
-                  locations outside Rochester City limits, please contact the office to determine dump schedule.
-                </p>
-
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground">
-                      Please contact the office for pricing and to schedule a clean out dumpster.
-                    </p>
+          <div className="mb-12 sm:mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
+              <Card className="border-2 border-primary/20">
+                <CardHeader className="text-center bg-primary/5">
+                  <CardTitle className="text-xl sm:text-2xl text-primary">Permanent Placement Dumpsters</CardTitle>
+                  <CardDescription className="text-sm sm:text-base">Reliable long-term dumpster service</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-4 sm:pt-6">
+                  <div className="grid grid-cols-3 text-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="text-sm sm:text-base font-semibold">2-Yard</div>
+                    <div className="text-sm sm:text-base font-semibold">3-Yard</div>
+                    <div className="text-sm sm:text-base font-semibold">6-Yard</div>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground">
-                      No construction debris are allowed in permanent placement dumpsters.
-                    </p>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
+                    Mike's Trash offers 2-yard, 3-yard, and 6-yard rear-load dumpsters for long-term Permanent
+                    Placement. We can dump locations within-in the Rochester City limits up to 5x per week. For
+                    locations outside Rochester City limits, please contact the office to determine dump schedule.
+                  </p>
+
+                  <div className="space-y-3 mb-4 sm:mb-6">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-sm sm:text-base text-muted-foreground">
+                        Please contact the office for pricing and to schedule a clean out dumpster.
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-sm sm:text-base text-muted-foreground">
+                        No construction debris are allowed in permanent placement dumpsters.
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="bg-primary text-primary-foreground p-5 rounded-xl mt-6">
-                  Mike's Trash offers dumpsters for permanent placement for residential and business trash removal as
-                  well as dumpster rentals for clean out or remodel projects.
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="bg-primary text-primary-foreground p-4 sm:p-5 rounded-xl text-sm sm:text-base leading-relaxed">
+                    Mike's Trash offers dumpsters for permanent placement for residential and business trash removal as
+                    well as dumpster rentals for clean out or remodel projects.
+                  </div>
+                </CardContent>
+              </Card>
 
-            {/* Dumpster Photos */}
-            <div className="space-y-4">
-              <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
-                <Image
-                  src="/Dumpster in alley with company logo.jpg"
-                  alt="Mike's Trash dumpster with company logo"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  quality={95}
-                />
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
-                <Image
-                  src="/rtc-dumpster.jpg"
-                  alt="Professional dumpster placement"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  quality={95}
-                />
+              {/* Dumpster Photos - Hidden on mobile */}
+              <div className="hidden lg:block space-y-6">
+                <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
+                  <Image
+                    src="/Dumpster in alley with company logo.jpg"
+                    alt="Mike's Trash dumpster with company logo"
+                    fill
+                    sizes="50vw"
+                    className="object-cover"
+                    quality={95}
+                  />
+                </div>
+                <div className="overflow-hidden rounded-2xl shadow-lg relative h-64">
+                  <Image
+                    src="/rtc-dumpster.jpg"
+                    alt="Professional dumpster placement"
+                    fill
+                    sizes="50vw"
+                    className="object-cover"
+                    quality={95}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Service in Action */}
-          <div className="mb-12 sm:mb-16">
+          {/* Service in Action - Hidden on mobile */}
+          <div className="mb-12 sm:mb-16 hidden md:block">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Our Service in Action</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="overflow-hidden rounded-2xl shadow-xl relative aspect-[4/3]">

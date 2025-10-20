@@ -17,7 +17,7 @@ export default function BulkPickupPage() {
       </section>
 
       {/* Address Checker Section */}
-      <section className="py-12 sm:py-16 px-4 bg-secondary/50">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <AddressChecker />
         </div>
@@ -26,82 +26,81 @@ export default function BulkPickupPage() {
       {/* Main Content */}
       <section className="py-6 sm:py-8 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 sm:gap-12 items-start mb-8 sm:mb-10">
-            {/* Left: One-time Removal and Lists */}
-            <div>
-              <Card className="mb-8">
-                <CardHeader className="text-center bg-primary/5 rounded-t-2xl">
-                  <CardTitle className="text-emerald-700 text-xl">One-time larger item removal</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-6 text-center text-muted-foreground">
-                  Got something too big for the curb? Schedule a one-time bulk pickup and we'll help you clear it out
-                  hassle-free!
-                </CardContent>
-              </Card>
+          <div className="mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 sm:gap-12 items-start">
+              <div>
+                <Card className="mb-6 sm:mb-8">
+                  <CardHeader className="text-center bg-primary/5 rounded-t-2xl">
+                    <CardTitle className="text-emerald-700 text-lg sm:text-xl">One-time larger item removal</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-4 sm:pt-6 text-center text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    Got something too big for the curb? Schedule a one-time bulk pickup and we'll help you clear it out
+                    hassle-free!
+                  </CardContent>
+                </Card>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-                {/* Common Items */}
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">Common Items:</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Old furniture (couches, chairs, tables, dressers)</li>
-                    <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Mattresses and box spring</li>
-                    <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Appliances <em>(without refrigerant)</em></li>
-                    <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Carpeting and rugs (rolled and tied)</li>
-                    <li className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5" /> Yard waste bundles (branches, sticks, bagged leaves)</li>
-                  </ul>
+                <div className="grid grid-cols-1 gap-6 mb-6 sm:mb-8">
+                  {/* Common Items */}
+                  <div className="bg-green-50 p-4 sm:p-5 rounded-xl border border-green-200">
+                    <h3 className="font-semibold text-foreground mb-3 text-base sm:text-lg">✓ Common Items We Take:</h3>
+                    <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                      <li className="flex gap-2"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" /> Old furniture (couches, chairs, tables, dressers)</li>
+                      <li className="flex gap-2"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" /> Mattresses and box springs</li>
+                      <li className="flex gap-2"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" /> Appliances <em>(without refrigerant)</em></li>
+                      <li className="flex gap-2"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" /> Carpeting and rugs (rolled and tied)</li>
+                      <li className="flex gap-2"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" /> Yard waste bundles (branches, sticks, bagged leaves)</li>
+                    </ul>
+                  </div>
+
+                  {/* Won't Take */}
+                  <div className="bg-red-50 p-4 sm:p-5 rounded-xl border border-red-200">
+                    <h3 className="font-semibold text-foreground mb-3 text-base sm:text-lg">✗ Items We Cannot Accept:</h3>
+                    <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                      <li className="flex gap-2"><XCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive mt-0.5 flex-shrink-0" /> Oils & Hazardous Materials</li>
+                      <li className="flex gap-2"><XCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive mt-0.5 flex-shrink-0" /> Tires</li>
+                      <li className="flex gap-2"><XCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive mt-0.5 flex-shrink-0" /> Dirt & Concrete</li>
+                      <li className="flex gap-2"><XCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive mt-0.5 flex-shrink-0" /> Bricks & Shingles</li>
+                      <li className="flex gap-2"><XCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive mt-0.5 flex-shrink-0" /> Electronics</li>
+                    </ul>
+                  </div>
                 </div>
 
-                {/* Won't Take */}
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">Won't Take:</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Oils</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Tires</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Dirt</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Concrete</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Bricks</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Shingles</li>
-                    <li className="flex gap-2"><XCircle className="h-4 w-4 text-destructive mt-0.5" /> Electronics</li>
-                  </ul>
+                <div className="bg-primary text-primary-foreground p-4 sm:p-5 rounded-xl text-sm sm:text-base leading-relaxed">
+                  Mike's Trash offers easy one-time bulk pickup—perfect for furniture, appliances, and other over-sized
+                  items. Just set it out and we'll take care of the heavy lifting.
                 </div>
               </div>
 
-              <div className="bg-primary text-primary-foreground p-5 rounded-xl mt-8">
-                Mike's Trash offers easy one-time bulk pickup—perfect for furniture, appliances, and other over-sized
-                items. Just set it out and we'll take care of the heavy lifting.
-              </div>
-            </div>
-
-            {/* Right: Service Photos */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="overflow-hidden rounded-2xl shadow-lg relative aspect-[4/3]">
-                <Image
-                  src="/owner driving large trash truck very creative shot.jpg"
-                  alt="Mike's Trash driver ready for bulk pickup"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
-                  quality={95}
-                />
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-lg relative aspect-[4/3]">
-                <Image
-                  src="/worker-on-truck.jpg"
-                  alt="Mike's Trash team member on truck"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
-                  quality={95}
-                />
+              {/* Photos - Hidden on mobile */}
+              <div className="hidden lg:block space-y-6">
+                <div className="overflow-hidden rounded-2xl shadow-lg relative aspect-[4/3]">
+                  <Image
+                    src="/owner driving large trash truck very creative shot.jpg"
+                    alt="Mike's Trash driver ready for bulk pickup"
+                    fill
+                    sizes="40vw"
+                    className="object-cover"
+                    quality={95}
+                  />
+                </div>
+                <div className="overflow-hidden rounded-2xl shadow-lg relative aspect-[4/3]">
+                  <Image
+                    src="/worker-on-truck.jpg"
+                    alt="Mike's Trash team member on truck"
+                    fill
+                    sizes="40vw"
+                    className="object-cover"
+                    quality={95}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Details */}
-      <section className="py-12 sm:py-16 px-4">
+      {/* Service Details - Hidden on mobile */}
+      <section className="py-12 sm:py-16 px-4 hidden lg:block">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
             <div>
@@ -158,8 +157,8 @@ export default function BulkPickupPage() {
             </div>
           </div>
 
-          {/* Fleet Showcase */}
-          <div className="mb-12 sm:mb-16">
+          {/* Fleet Showcase - Hidden on mobile */}
+          <div className="mb-12 sm:mb-16 hidden md:block">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center px-2">Professional Equipment & Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="rounded-2xl shadow-xl overflow-hidden relative aspect-[4/3]">
