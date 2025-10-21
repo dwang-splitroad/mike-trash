@@ -740,8 +740,8 @@ export async function sendReferralEmail(data: ReferralFormData) {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
           }
           .header {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            color: #000000;
+            background-color: #f59e0b;
+            color: #ffffff;
             padding: 40px 30px;
             text-align: center;
           }
@@ -817,7 +817,7 @@ export async function sendReferralEmail(data: ReferralFormData) {
             margin: 5px;
           }
           .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            background-color: #fef3c7;
             border-left: 4px solid #f59e0b;
             border-radius: 8px;
             padding: 16px 20px;
@@ -828,18 +828,18 @@ export async function sendReferralEmail(data: ReferralFormData) {
       <body>
         <div class="email-wrapper" style="border: 3px solid #fbbf24; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
           <!-- Header -->
-          <div class="header" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #000000; padding: 40px 30px; text-align: center;">
+          <div class="header" style="background-color: #f59e0b; color: #ffffff; padding: 40px 30px; text-align: center;">
             <div style="position: relative; z-index: 1;">
               <div style="font-size: 48px; margin-bottom: 10px;">🎁</div>
-              <h1 style="color: #000000; font-size: 28px; font-weight: 700; margin: 10px 0 5px 0;">New Referral Received!</h1>
-              <p style="color: #000000; font-size: 16px; font-weight: 500; margin: 0; opacity: 0.85;">Customer Referral Program</p>
+              <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 10px 0 5px 0;">New Referral Received!</h1>
+              <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 0; opacity: 0.95;">Customer Referral Program</p>
             </div>
           </div>
 
           <!-- Content -->
           <div class="content" style="padding: 40px 30px; background-color: #ffffff;">
             <!-- Highlight -->
-            <div class="highlight-box" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px;">
+            <div class="highlight-box" style="background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px;">
               <p style="color: #92400e; font-weight: 600; font-size: 15px; margin: 0;">
                 💰 Remember: $25 credit for referrer, $25 off for new customer!
               </p>

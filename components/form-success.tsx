@@ -37,7 +37,7 @@ export function FormSuccess({ title, message, onClose }: FormSuccessProps) {
         {/* Content */}
         <div className="px-8 pb-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">{title}</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">{message}</p>
+          <p className="text-gray-600 leading-relaxed mb-6 whitespace-pre-line">{message}</p>
           
           {onClose && (
             <Button

@@ -191,7 +191,7 @@ export function AddressChecker() {
       {showSuccess && (
         <FormSuccess
           title="Service Request Submitted!"
-          message="Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service. You should also receive a welcome email with more details."
+          message={`Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service.\n\n📧 IMPORTANT: We've sent a confirmation email to ${formData.email}. If you don't see it within 5 minutes, please check your spam/junk folder and mark it as "Not Spam" to ensure you receive future updates from us.`}
           onClose={handleSuccessClose}
         />
       )}
