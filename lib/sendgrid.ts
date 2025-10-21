@@ -391,9 +391,18 @@ Contact the customer to confirm service details and schedule their first pickup.
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
+    replyTo: {
+      email: 'mikestrash@rtcol.com',
+      name: "Mike's Trash Service"
+    },
     subject: `New Service Signup: ${data.firstName} ${data.lastName} - ${getServiceTypeLabel(data.serviceType)}`,
     text: textContent,
     html: htmlContent,
+    categories: ['service-signup', 'website-form'],
+    customArgs: {
+      service_type: data.serviceType,
+      source: 'website'
+    }
   }
 
   try {
@@ -660,9 +669,18 @@ Submitted: ${new Date().toLocaleString()}
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
+    replyTo: {
+      email: 'mikestrash@rtcol.com',
+      name: "Mike's Trash Service"
+    },
     subject: `New Contact: ${data.firstName} ${data.lastName} - ${getContactTypeLabel(data.serviceType)}`,
     text: textContent,
     html: htmlContent,
+    categories: ['contact-form', 'website-inquiry'],
+    customArgs: {
+      inquiry_type: data.serviceType,
+      source: 'contact-page'
+    }
   }
 
   try {
@@ -954,9 +972,18 @@ Submitted: ${new Date().toLocaleString()}
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
+    replyTo: {
+      email: 'mikestrash@rtcol.com',
+      name: "Mike's Trash Service"
+    },
     subject: `New Referral: ${data.referrerFirstName} ${data.referrerLastName} → ${data.referredFirstName} ${data.referredLastName}`,
     text: textContent,
     html: htmlContent,
+    categories: ['referral-program', 'website-form'],
+    customArgs: {
+      referrer: `${data.referrerFirstName} ${data.referrerLastName}`,
+      source: 'referral-page'
+    }
   }
 
   try {
@@ -1003,7 +1030,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to Mike's Trash Service!</title>
+        <title>Welcome to Mike's Trash Service</title>
         <style>
           * {
             margin: 0;
@@ -1014,7 +1041,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #1f2937;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #ffffff;
             padding: 40px 20px;
           }
           .email-wrapper {
@@ -1026,7 +1053,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
           }
           .header {
-            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            background-color: #16a34a;
             color: white;
             padding: 50px 30px;
             text-align: center;
@@ -1041,7 +1068,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
             padding: 40px 30px;
           }
           .welcome-box {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            background-color: #ecfdf5;
             border-left: 4px solid #16a34a;
             border-radius: 12px;
             padding: 24px;
@@ -1060,7 +1087,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
           }
           .service-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            background-color: #16a34a;
             color: white;
             padding: 12px 24px;
             border-radius: 25px;
@@ -1098,7 +1125,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
           }
           .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            background-color: #16a34a;
             color: #ffffff;
             padding: 16px 32px;
             border-radius: 8px;
@@ -1151,9 +1178,9 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
           <!-- Content -->
           <div class="content">
             <!-- Welcome Message -->
-            <div class="welcome-box">
-              <h2>We're Excited to Serve You! 🎉</h2>
-              <p>
+            <div class="welcome-box" style="background-color: #ecfdf5; border-left: 4px solid #16a34a; border-radius: 12px; padding: 24px; margin-bottom: 30px; text-align: center;">
+              <h2 style="color: #15803d; font-size: 24px; margin-bottom: 10px;">We're Excited to Serve You!</h2>
+              <p style="color: #166534; font-size: 16px; line-height: 1.8;">
                 Thank you for submitting your service request. We've received your information and one of our team members will contact you shortly to finalize the details and schedule your first pickup.
               </p>
             </div>
@@ -1161,7 +1188,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
             <!-- Service Type -->
             <div style="text-align: center; margin: 30px 0;">
               <div style="font-size: 13px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">YOUR REQUESTED SERVICE</div>
-              <span class="service-badge">${getServiceTypeLabel(data.serviceType)}</span>
+              <span class="service-badge" style="background-color: #16a34a; color: white; padding: 12px 24px; border-radius: 25px; font-weight: 600; font-size: 16px;">${getServiceTypeLabel(data.serviceType)}</span>
             </div>
 
             <!-- What Happens Next -->
@@ -1198,18 +1225,35 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
               <h3 style="color: #111827; font-size: 16px; margin-bottom: 12px; font-weight: 600;">Your Service Address</h3>
               <p style="color: #374151; line-height: 1.6; margin: 0;">${data.address}</p>
             </div>
+
+            <!-- Important: Whitelist Request -->
+            <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 20px 24px; margin: 25px 0; border: 1px solid #fbbf24;">
+              <p style="margin: 0 0 12px 0; font-size: 15px; color: #92400e; line-height: 1.7; font-weight: 600;">
+                <strong>📧 IMPORTANT - Don't Miss Our Updates!</strong>
+              </p>
+              <p style="margin: 0; font-size: 14px; color: #78350f; line-height: 1.6;">
+                To ensure you receive important updates about your service:
+              </p>
+              <ul style="margin: 10px 0 0 20px; padding: 0; color: #78350f; font-size: 14px; line-height: 1.8;">
+                <li>Add <strong>no-reply@mikestrashllc.com</strong> to your email contacts</li>
+                <li>Check your spam/junk folder if you don't see future emails from us</li>
+                <li>Mark our emails as "Not Spam" to ensure delivery</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Footer -->
-          <div class="footer">
-            <p class="footer-text">
-              <strong>Mike's Trash Service</strong><br>
+          <div class="footer" style="background-color: #f9fafb; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+            <p style="color: #6b7280; font-size: 14px; line-height: 1.8; margin: 0;">
+              <strong style="color: #111827;">Mike's Trash Service</strong><br>
               Serving Fulton County & Rochester, IN<br>
-              Phone: (574) 223-6429<br>
-              <a href="https://www.trashbilling.com" style="color: #16a34a; text-decoration: none;">Make a Payment</a>
+              Phone: <a href="tel:5742236429" style="color: #16a34a; text-decoration: none;">(574) 223-6429</a><br>
+              Email: <a href="mailto:mikestrash@rtcol.com" style="color: #16a34a; text-decoration: none;">mikestrash@rtcol.com</a><br>
+              <a href="https://www.trashbilling.com" style="color: #16a34a; text-decoration: none; font-weight: 600;">Make a Payment Online</a>
             </p>
-            <p style="color: #9ca3af; font-size: 12px; margin-top: 20px;">
-              This email was sent because you submitted a service request on our website.
+            <p style="color: #9ca3af; font-size: 12px; margin-top: 20px; line-height: 1.6;">
+              This is a transactional email sent because you requested service at our website.<br>
+              Our address: Rochester, IN 46975
             </p>
           </div>
         </div>
@@ -1218,7 +1262,7 @@ export async function sendCustomerWelcomeEmail(data: ServiceSignupData) {
   `
 
   const textContent = `
-Welcome to Mike's Trash Service!
+SERVICE REQUEST CONFIRMATION - Mike's Trash Service
 
 Hi ${data.firstName},
 
@@ -1232,21 +1276,31 @@ WHAT HAPPENS NEXT:
 - We'll schedule your first pickup and arrange delivery of any necessary equipment
 - Your reliable trash service begins on your scheduled pickup day
 
+IMPORTANT - DON'T MISS OUR UPDATES:
+To ensure you receive important updates about your service:
+- Add no-reply@mikestrashllc.com to your email contacts
+- Check your spam/junk folder if you don't see future emails from us
+- Mark our emails as "Not Spam" to ensure delivery
+
 WHY YOU'LL LOVE MIKE'S TRASH:
-✓ Over 30 Years of Service - Trusted by Fulton County and Rochester families
-✓ Friendly & Reliable - We never miss a pickup
-✓ Fair Pricing - Transparent rates with no hidden fees
-✓ Local Family Business - We live and work in the community we serve
+- Over 30 Years of Service - Trusted by Fulton County and Rochester families
+- Friendly & Reliable - We never miss a pickup
+- Fair Pricing - Transparent rates with no hidden fees
+- Local Family Business - We live and work in the community we serve
 
 HAVE QUESTIONS?
 Call us: (574) 223-6429
-Email: info@mikestrashservice.com
+Email: mikestrash@rtcol.com
 Hours: Monday through Friday, 8 AM - 5 PM
 
 We look forward to serving you!
 
 Mike's Trash Service
-Serving Fulton County & Rochester, IN
+Serving Fulton County & Rochester, IN 46975
+Phone: (574) 223-6429
+Email: mikestrash@rtcol.com
+
+This is a transactional email sent because you requested service at our website.
   `
 
   const msg = {
@@ -1255,9 +1309,22 @@ Serving Fulton County & Rochester, IN
       email: 'no-reply@mikestrashllc.com',
       name: "Mike's Trash Service"
     },
-    subject: `Welcome to Mike's Trash Service! 🚛`,
+    replyTo: {
+      email: 'mikestrash@rtcol.com',
+      name: "Mike's Trash Service"
+    },
+    subject: `Your Service Request Confirmation - Mike's Trash`,
     text: textContent,
     html: htmlContent,
+    categories: ['customer-welcome', 'transactional'],
+    customArgs: {
+      service_type: data.serviceType,
+      customer_type: 'new'
+    },
+    headers: {
+      'List-Unsubscribe': `<mailto:mikestrash@rtcol.com?subject=Unsubscribe>`,
+      'X-Entity-Ref-ID': `service-request-${Date.now()}`
+    }
   }
 
   try {
