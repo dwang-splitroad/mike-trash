@@ -14,6 +14,7 @@ interface ServiceZoneMapProps {
 
 export function ServiceZoneMap({ userLocation }: ServiceZoneMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
+  const mapInstanceRef = useRef<any>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -36,45 +37,56 @@ export function ServiceZoneMap({ userLocation }: ServiceZoneMapProps) {
       const center = getServiceZoneCenter()
       const bounds = getServiceZoneBounds()
 
-      // Create map
-      const map = L.map(mapRef.current).setView(center as [number, number], 10)
+      // Create map only if not already initialized
+      if (!mapInstanceRef.current && mapRef.current) {
+        const map = L.map(mapRef.current).setView(center as [number, number], 10)
+        mapInstanceRef.current = map
 
-      // Add tile layer
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map)
+        // Add tile layer
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map)
 
-      // Convert GeoJSON coordinates to Leaflet format [lat, lng]
-      const polygonPositions: [number, number][] = SERVICE_ZONE_GEOJSON.features[0].geometry.coordinates[0].map(
-        ([lng, lat]) => [lat, lng] as [number, number]
-      )
+        // Convert GeoJSON coordinates to Leaflet format [lat, lng]
+        const polygonPositions: [number, number][] = SERVICE_ZONE_GEOJSON.features[0].geometry.coordinates[0].map(
+          ([lng, lat]) => [lat, lng] as [number, number]
+        )
 
-      // Add polygon
-      L.polygon(polygonPositions, {
-        color: "#3b82f6",
-        fillColor: "#3b82f6",
-        fillOpacity: 0.2,
-        weight: 2,
-      })
-        .addTo(map)
-        .bindPopup("Mike's Trash Service Zone")
-
-      // Add marker if user location is provided
-      if (userLocation) {
-        L.marker([userLocation.latitude, userLocation.longitude])
+        // Add polygon
+        L.polygon(polygonPositions, {
+          color: "#3b82f6",
+          fillColor: "#3b82f6",
+          fillOpacity: 0.2,
+          weight: 2,
+        })
           .addTo(map)
-          .bindPopup(
-            `Your Address${userLocation.displayName ? `<br/><span style="font-size: 0.75rem">${userLocation.displayName}</span>` : ""}`
-          )
+          .bindPopup("Mike's Trash Service Zone")
+
+        // Add marker if user location is provided
+        if (userLocation) {
+          L.marker([userLocation.latitude, userLocation.longitude])
+            .addTo(map)
+            .bindPopup(
+              `Your Address${userLocation.displayName ? `<br/><span style="font-size: 0.75rem">${userLocation.displayName}</span>` : ""}`
+            )
+        }
+
+        // Fit bounds
+        map.fitBounds(bounds as [[number, number], [number, number]])
+
+        setIsLoaded(true)
       }
-
-      // Fit bounds
-      map.fitBounds(bounds as [[number, number], [number, number]])
-
-      setIsLoaded(true)
     }
 
     initMap()
+
+    // Cleanup function to remove map on unmount
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove()
+        mapInstanceRef.current = null
+      }
+    }
   }, [userLocation])
 
   return (

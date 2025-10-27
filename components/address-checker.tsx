@@ -69,10 +69,10 @@ export function AddressChecker() {
       clearTimeout(debounceTimeout.current)
     }
 
-    // Set new timeout for debounced search
+    // Set new timeout for debounced search (1000ms to respect Nominatim rate limit of 1 req/sec)
     debounceTimeout.current = setTimeout(() => {
       fetchSuggestions(value)
-    }, 300)
+    }, 1000)
   }
 
   const handleSuggestionClick = (suggestion: AddressSuggestion) => {
@@ -257,13 +257,14 @@ export function AddressChecker() {
               {showSuggestions && suggestions.length > 0 && (
                 <div
                   ref={suggestionsRef}
-                  className="absolute z-50 w-full mt-1 bg-white border border-border rounded-lg shadow-lg max-h-64 overflow-y-auto"
+                  className="absolute z-[9999] w-full mt-1 bg-white dark:bg-gray-800 border-2 border-border rounded-lg shadow-2xl max-h-64 overflow-y-auto"
+                  style={{ boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)' }}
                 >
                   {suggestions.map((suggestion, index) => (
                     <button
                       key={index}
                       type="button"
-                      className="w-full text-left px-4 py-3 hover:bg-secondary/50 transition-colors border-b border-border last:border-b-0 flex items-start gap-2"
+                      className="w-full text-left px-4 py-3 hover:bg-secondary/50 transition-colors border-b border-border last:border-b-0 flex items-start gap-2 bg-white dark:bg-gray-800"
                       onClick={() => handleSuggestionClick(suggestion)}
                     >
                       <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />

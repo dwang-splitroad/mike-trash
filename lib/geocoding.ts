@@ -13,6 +13,9 @@ export interface AddressSuggestion {
   longitude: number
 }
 
+// Track last request time to respect Nominatim rate limit (1 req/sec)
+let lastRequestTime = 0
+
 /**
  * Get address suggestions for autocomplete
  * Returns multiple matching addresses
@@ -22,13 +25,22 @@ export async function getAddressSuggestions(query: string): Promise<AddressSugge
     return []
   }
 
+  // Enforce 1 second minimum between requests
+  const now = Date.now()
+  const timeSinceLastRequest = now - lastRequestTime
+  if (timeSinceLastRequest < 1000) {
+    const waitTime = 1000 - timeSinceLastRequest
+    await new Promise(resolve => setTimeout(resolve, waitTime))
+  }
+  lastRequestTime = Date.now()
+
   try {
     const response = await fetch(
       `https://nominatim.openstreetmap.org/search?` +
         new URLSearchParams({
           q: query,
           format: "json",
-          limit: "5",
+          limit: "10", // Request more to filter down to Indiana results
           addressdetails: "1",
           countrycodes: "us", // Limit to US addresses
         }),
@@ -40,7 +52,11 @@ export async function getAddressSuggestions(query: string): Promise<AddressSugge
     )
 
     if (!response.ok) {
-      console.error("Address suggestions API error:", response.statusText)
+      if (response.status === 503) {
+        console.warn("Nominatim API rate limit reached. Please wait a moment before searching again.")
+      } else {
+        console.error("Address suggestions API error:", response.statusText)
+      }
       return []
     }
 
@@ -50,7 +66,31 @@ export async function getAddressSuggestions(query: string): Promise<AddressSugge
       return []
     }
 
-    return data.map((result: any) => ({
+    // Filter to only show Indiana addresses
+    const indianaResults = data.filter((result: any) => {
+      const state = result.address?.state
+      const displayName = result.display_name || ""
+      
+      // Check if it's Indiana by state field or if "Indiana" or "IN" appears in the display name
+      const isIndiana = 
+        state === "Indiana" || 
+        state === "IN" || 
+        displayName.includes("Indiana") || 
+        displayName.includes(", IN,") ||
+        displayName.includes(", IN ")
+      
+      // Debug logging (remove after testing)
+      if (!isIndiana) {
+        console.log("Filtered out:", displayName, "State:", state)
+      }
+      
+      return isIndiana
+    })
+
+    console.log(`Found ${data.length} total results, ${indianaResults.length} in Indiana`)
+
+    // Limit to 5 results after filtering
+    return indianaResults.slice(0, 5).map((result: any) => ({
       displayName: result.display_name,
       latitude: parseFloat(result.lat),
       longitude: parseFloat(result.lon),
