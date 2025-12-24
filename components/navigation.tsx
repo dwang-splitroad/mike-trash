@@ -17,7 +17,6 @@ export function Navigation() {
     { href: "/holiday-calendar", label: "Holiday Calendar" },
     { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
-    { href: "/referral", label: "Referral" },
     { href: "/about", label: "About" },
   ]
 

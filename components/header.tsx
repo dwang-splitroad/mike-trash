@@ -57,9 +57,6 @@ export function Header() {
             <Link href="/contact" className="hover:text-primary-foreground/80 transition-colors">
               Contact
             </Link>
-            <Link href="/referral" className="hover:text-primary-foreground/80 transition-colors">
-              Referral
-            </Link>
           </nav>
 
           {/* Make Payment Button */}
@@ -106,9 +103,6 @@ export function Header() {
             </Link>
             <Link href="/contact" className="block py-2 hover:text-primary-foreground/80 transition-colors">
               Contact
-            </Link>
-            <Link href="/referral" className="block py-2 hover:text-primary-foreground/80 transition-colors">
-              Referral
             </Link>
             <div className="pt-2">
               <Button variant="secondary" asChild className="w-full">

@@ -304,11 +304,6 @@ export default function HomePage() {
                     FAQ
                   </Link>
                 </li>
-                <li>
-                  <Link href="/referral" className="hover:text-foreground">
-                    Referral Program
-                  </Link>
-                </li>
               </ul>
             </div>
 
