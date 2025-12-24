@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/navigation"
-import { AddressChecker } from "@/components/address-checker"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Clock, Wrench, Shield, AlertCircle } from "lucide-react"
 import Image from "next/image"
@@ -16,10 +16,18 @@ export default function DumpstersPage() {
         </div>
       </section>
 
-      {/* Address Checker Section */}
+      {/* Sign Up Section */}
       <section className="py-12 sm:py-16 px-4">
-        <div className="max-w-2xl mx-auto">
-          <AddressChecker />
+        <div className="max-w-2xl mx-auto text-center">
+          <Button asChild size="lg" className="text-lg px-8 py-6">
+            <a
+              href="https://app.trashjoes.com/h/mikes-trash"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sign Up for Service
+            </a>
+          </Button>
         </div>
       </section>
 
@@ -265,8 +273,16 @@ export default function DumpstersPage() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
-          <AddressChecker />
+        <div className="max-w-2xl mx-auto text-center">
+          <Button asChild size="lg" className="text-lg px-8 py-6">
+            <a
+              href="https://app.trashjoes.com/h/mikes-trash"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sign Up for Service
+            </a>
+          </Button>
         </div>
       </section>
     </div>

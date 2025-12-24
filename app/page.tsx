@@ -1,5 +1,4 @@
 import { Navigation } from "@/components/navigation"
-import { AddressChecker } from "@/components/address-checker"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Truck, Container, Sofa, Package, Users, Leaf, Clock, Star, Quote } from "lucide-react"
@@ -35,7 +34,15 @@ export default function HomePage() {
           </p> */}
 
           <div className="mb-8 sm:mb-16">
-            <AddressChecker />
+            <Button asChild size="lg" className="text-lg px-8 py-6">
+              <a
+                href="https://app.trashjoes.com/h/mikes-trash"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sign Up for Service
+              </a>
+            </Button>
           </div>
         </div>
       </section>

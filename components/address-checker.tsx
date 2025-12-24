@@ -6,36 +6,21 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Truck, CheckCircle, XCircle, AlertCircle, Lock, MapPin } from "lucide-react"
+import { Truck, CheckCircle, XCircle, AlertCircle, MapPin } from "lucide-react"
 import { checkAddressInServiceZone, getAddressSuggestions, type GeocodingResult, type AddressSuggestion } from "@/lib/geocoding"
 import { ServiceZoneMapWrapper } from "@/components/service-zone-map-wrapper"
-import { FormSuccess } from "@/components/form-success"
-import { FormError } from "@/components/form-error"
 
 export function AddressChecker() {
   const [address, setAddress] = useState("")
   const [isChecking, setIsChecking] = useState(false)
   const [checkResult, setCheckResult] = useState<"in-service" | "out-of-service" | "error" | null>(null)
-  const [showSignupForm, setShowSignupForm] = useState(false)
   const [showMap, setShowMap] = useState(false)
   const [userLocation, setUserLocation] = useState<GeocodingResult | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false)
   const suggestionsRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    serviceType: "residential",
-  })
-  const [showSuccess, setShowSuccess] = useState(false)
-  const [showError, setShowError] = useState(false)
 
   // Debounce function for address suggestions
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null)
@@ -120,9 +105,6 @@ export function AddressChecker() {
 
       if (result.inZone) {
         setCheckResult("in-service")
-        // Use the official geocoded address (displayName) instead of user input
-        setFormData((prev) => ({ ...prev, address: result.geocodingResult.displayName }))
-        setShowSignupForm(true)
       } else {
         setCheckResult("out-of-service")
         setShowMap(true)
@@ -135,75 +117,10 @@ export function AddressChecker() {
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    try {
-      // Send signup data to API
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const result = await response.json()
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit signup')
-      }
-
-      // Success
-      setShowSuccess(true)
-
-      // Reset form
-      setAddress("")
-      setCheckResult(null)
-      setShowSignupForm(false)
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        address: "",
-        serviceType: "residential",
-      })
-    } catch (error: any) {
-      console.error('Signup submission error:', error)
-      setShowError(true)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleSuccessClose = () => {
-    setShowSuccess(false)
-  }
-
-  const handleErrorClose = () => {
-    setShowError(false)
-  }
 
   return (
     <>
-      {showSuccess && (
-        <FormSuccess
-          title="Service Request Submitted!"
-          message={`Thank you! Your information has been sent to Mike's Trash Service. We'll contact you soon to set up your service.\n\n📧 IMPORTANT: We've sent a confirmation email to ${formData.email}. If you don't see it within 5 minutes, please check your spam/junk folder and mark it as "Not Spam" to ensure you receive future updates from us.`}
-          onClose={handleSuccessClose}
-        />
-      )}
-      {showError && (
-        <FormError
-          title="Submission Error"
-          message="We're sorry, there was an error submitting your information. Please try again or call us at (574) 223-6429."
-          onClose={handleErrorClose}
-        />
-      )}
       <div className="w-full max-w-2xl mx-auto">
-      {!showSignupForm ? (
         <Card className="shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-balance">Check if we serve your area</CardTitle>
@@ -306,6 +223,23 @@ export function AddressChecker() {
                     Please check your address and try again. Make sure to include city and state.
                   </p>
                 )}
+                {checkResult === "in-service" && (
+                  <div className="mt-4">
+                    <Button
+                      asChild
+                      className="w-full"
+                      size="lg"
+                    >
+                      <a
+                        href="https://app.trashjoes.com/h/mikes-trash"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Sign Up for Service
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             )}
 
@@ -316,116 +250,6 @@ export function AddressChecker() {
             )}
           </CardContent>
         </Card>
-      ) : (
-        <Card className="shadow-lg">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-balance">Sign up for service</CardTitle>
-            <CardDescription>
-              Fill out your information and we'll contact you to set up your trash service
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input
-                    id="firstName"
-                    required
-                    value={formData.firstName}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, firstName: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input
-                    id="lastName"
-                    required
-                    value={formData.lastName}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, lastName: e.target.value }))}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="serviceAddress" className="flex items-center gap-2">
-                  Service Address
-                  <span className="inline-flex items-center gap-1 text-xs font-normal text-green-600">
-                    <CheckCircle className="h-3 w-3" />
-                    Verified
-                  </span>
-                </Label>
-                <div className="relative">
-                  <Input
-                    id="serviceAddress"
-                    required
-                    value={formData.address}
-                    disabled
-                    className="bg-green-50 border-green-200 text-foreground pr-10 cursor-not-allowed"
-                  />
-                  <Lock className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-600" />
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  This is your verified address. Click "Back" to change it.
-                </p>
-              </div>
-
-              <div>
-                <Label htmlFor="serviceType">Service Type</Label>
-                <select
-                  id="serviceType"
-                  className="w-full p-2 border border-input rounded-md bg-background"
-                  value={formData.serviceType}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, serviceType: e.target.value }))}
-                >
-                  <option value="residential">Residential Pickup</option>
-                  <option value="dumpster">Dumpster Rental</option>
-                  <option value="bulk">Bulk Pickup</option>
-                  <option value="rolloff">Roll-Off Container</option>
-                </select>
-              </div>
-
-              <div className="flex gap-2 pt-4">
-                <Button type="submit" className="flex-1" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Sign Up for Service"}
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => {
-                    setShowSignupForm(false)
-                    setCheckResult(null)
-                  }}
-                >
-                  Back
-                </Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-      )}
       </div>
     </>
   )
