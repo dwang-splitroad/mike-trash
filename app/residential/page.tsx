@@ -19,7 +19,7 @@ export default function ResidentialPage() {
 
       {/* Sign Up Section */}
       <section className="py-12 sm:py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center flex justify-center">
           <Button asChild size="lg" className="text-lg px-8 py-6">
             <a
               href="https://app.trashjoes.com/h/mikes-trash"

@@ -33,7 +33,7 @@ export default function HomePage() {
             In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p> */}
 
-          <div className="mb-8 sm:mb-16">
+          <div className="mb-8 sm:mb-16 flex justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6">
               <a
                 href="https://app.trashjoes.com/h/mikes-trash"
