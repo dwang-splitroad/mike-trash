@@ -304,6 +304,11 @@ export default function HomePage() {
                     FAQ
                   </Link>
                 </li>
+                <li>
+                  <a href="https://app.trashjoes.com/h/mikes-trash" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+                    Referral Program
+                  </a>
+                </li>
               </ul>
             </div>
 
