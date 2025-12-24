@@ -57,9 +57,6 @@ export function Header() {
             <Link href="/contact" className="hover:text-primary-foreground/80 transition-colors">
               Contact
             </Link>
-            <a href="https://app.trashjoes.com/h/mikes-trash" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
-              Referral
-            </a>
           </nav>
 
           {/* Make Payment Button */}
@@ -107,9 +104,6 @@ export function Header() {
             <Link href="/contact" className="block py-2 hover:text-primary-foreground/80 transition-colors">
               Contact
             </Link>
-            <a href="https://app.trashjoes.com/h/mikes-trash" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-primary-foreground/80 transition-colors">
-              Referral
-            </a>
             <div className="pt-2">
               <Button variant="secondary" asChild className="w-full">
                 <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">

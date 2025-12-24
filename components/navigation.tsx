@@ -59,14 +59,6 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="https://app.trashjoes.com/h/mikes-trash"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors whitespace-nowrap"
-              >
-                Referral
-              </a>
             </div>
 
             {/* Make Payment Button (right) */}
@@ -101,15 +93,6 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="https://app.trashjoes.com/h/mikes-trash"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Referral
-              </a>
               <div className="pt-3 pb-1">
                 <Button asChild className="w-full">
                   <a href="https://www.trashbilling.com" target="_blank" rel="noopener noreferrer">
