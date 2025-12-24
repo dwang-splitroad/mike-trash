@@ -11,7 +11,7 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 px-4 min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src="/truck-street.jpg"
@@ -24,7 +24,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/80"></div>
         </div>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-7xl mx-auto text-center relative z-10 h-full flex flex-col justify-center items-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 text-balance">
             Your Trusted Neighborhood
             <span className="block text-primary">Trash Service</span>
@@ -33,7 +33,7 @@ export default function HomePage() {
             In business for over 30 years, Mike's Trash has always been about serving our neighbors with honesty and care.
           </p> */}
 
-          <div className="mb-8 sm:mb-16 flex justify-center">
+          <div className="mt-4 sm:mt-6 flex justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6">
               <a
                 href="https://app.trashjoes.com/h/mikes-trash"
