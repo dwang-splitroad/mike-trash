@@ -12,7 +12,6 @@ import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react"
 import { useState } from "react"
 import { FormSuccess } from "@/components/form-success"
 import { FormError } from "@/components/form-error"
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -22,6 +21,7 @@ export default function ContactPage() {
     address: "",
     serviceType: "general",
     message: "",
+    website: "", // Honeypot field - bots will fill this, humans won't see it
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -44,7 +44,8 @@ export default function ContactPage() {
       const result = await response.json()
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit contact form')
+        console.error('API Error Response:', result)
+        throw new Error(result.error || result.details || 'Failed to submit contact form')
       }
 
       // Success
@@ -59,9 +60,11 @@ export default function ContactPage() {
         address: "",
         serviceType: "general",
         message: "",
+        website: "",
       })
     } catch (error: any) {
       console.error('Contact form submission error:', error)
+      console.error('Error details:', error.message, error.stack)
       setShowError(true)
     } finally {
       setIsSubmitting(false)
@@ -204,6 +207,20 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
                         placeholder="Tell us how we can help you..."
+                      />
+                    </div>
+
+                    {/* Honeypot field - hidden from users, but bots will fill it */}
+                    <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                      <Label htmlFor="website">Website (leave blank)</Label>
+                      <Input
+                        id="website"
+                        type="text"
+                        name="website"
+                        value={formData.website}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, website: e.target.value }))}
+                        tabIndex={-1}
+                        autoComplete="off"
                       />
                     </div>
 
