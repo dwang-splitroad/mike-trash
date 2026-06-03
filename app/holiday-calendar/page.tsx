@@ -7,8 +7,8 @@ export default function HolidayCalendarPage() {
     {
       date: "January 1, 2025",
       holiday: "New Year's Day",
-      status: "no-pickup",
-      makeup: "January 2, 2025",
+      status: "regular",
+      makeup: null,
     },
     {
       date: "January 20, 2025",
@@ -61,8 +61,8 @@ export default function HolidayCalendarPage() {
     {
       date: "December 25, 2025",
       holiday: "Christmas Day",
-      status: "no-pickup",
-      makeup: "December 26, 2025",
+      status: "regular",
+      makeup: null,
     },
   ]
 

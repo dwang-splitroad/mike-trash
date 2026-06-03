@@ -281,7 +281,7 @@ export default function ResidentialPage() {
                   </svg>
                 </div>
                 <p className="text-muted-foreground">
-                  We operate 1 day late on the following holidays: Memorial Day, 4th of July, Labor Day, Thanksgiving, Christmas and New Years Day. Holiday schedules are posted/updated on our website and Facebook Page.
+                  We operate 1 day late on the following holidays: Memorial Day, 4th of July, Labor Day, and Thanksgiving. Christmas and New Year's run on the regular schedule. Holiday schedules are posted/updated on our website and Facebook Page.
                 </p>
               </div>
             </div>
