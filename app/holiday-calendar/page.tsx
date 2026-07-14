@@ -3,66 +3,46 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Calendar, Clock, AlertTriangle, CheckCircle } from "lucide-react"
 
 export default function HolidayCalendarPage() {
-  const holidays2025 = [
+  const holidays = [
     {
-      date: "January 1, 2025",
       holiday: "New Year's Day",
       status: "regular",
-      makeup: null,
     },
     {
-      date: "January 20, 2025",
       holiday: "Martin Luther King Jr. Day",
       status: "regular",
-      makeup: null,
     },
     {
-      date: "February 17, 2025",
       holiday: "Presidents' Day",
       status: "regular",
-      makeup: null,
     },
     {
-      date: "May 26, 2025",
       holiday: "Memorial Day",
       status: "no-pickup",
-      makeup: "May 27, 2025",
     },
     {
-      date: "July 4, 2025",
       holiday: "Independence Day",
       status: "no-pickup",
-      makeup: "July 5, 2025",
     },
     {
-      date: "September 1, 2025",
       holiday: "Labor Day",
       status: "no-pickup",
-      makeup: "September 2, 2025",
     },
     {
-      date: "October 13, 2025",
       holiday: "Columbus Day",
       status: "regular",
-      makeup: null,
     },
     {
-      date: "November 11, 2025",
       holiday: "Veterans Day",
       status: "regular",
-      makeup: null,
     },
     {
-      date: "November 27, 2025",
       holiday: "Thanksgiving Day",
       status: "no-pickup",
-      makeup: "November 28, 2025",
     },
     {
-      date: "December 25, 2025",
       holiday: "Christmas Day",
       status: "regular",
-      makeup: null,
     },
   ]
 
@@ -90,7 +70,7 @@ export default function HolidayCalendarPage() {
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Important Holiday Information</h3>
                 <p className="text-muted-foreground">
-                  Trash collection moves to the next business day following a No Pickup holiday. Please have your bins out by 7 AM on the makeup day. We appreciate your understanding as we spend time with our families during these special days.
+                  Trash collection moves to the next business day following a No Pickup holiday. Please have your bins out by 6 AM on the makeup day. If a holiday falls on a Saturday or Sunday, there is no interruption to your regular service. We appreciate your understanding as we spend time with our families during these special days.
                 </p>
               </div>
             </div>
@@ -102,21 +82,20 @@ export default function HolidayCalendarPage() {
       <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">2025 Holiday Calendar</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">Holiday Calendar</h2>
             <p className="text-base sm:text-lg text-muted-foreground px-4">
               Plan ahead with our complete holiday calendar. We'll always notify customers of any calendar changes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {holidays2025.map((holiday, index) => (
+            {holidays.map((holiday, index) => (
               <Card key={index} className={holiday.status === "no-pickup" ? "border-orange-200 bg-orange-50" : ""}>
                 <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium text-muted-foreground">{holiday.date}</span>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-5 w-5 text-primary flex-shrink-0" />
+                    <CardTitle className="text-lg">{holiday.holiday}</CardTitle>
                   </div>
-                  <CardTitle className="text-lg">{holiday.holiday}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -135,11 +114,11 @@ export default function HolidayCalendarPage() {
                       </span>
                     </div>
 
-                    {holiday.makeup && (
+                    {holiday.status === "no-pickup" && (
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4 text-primary" />
                         <span className="text-sm text-muted-foreground">
-                          Makeup day: <strong>{holiday.makeup}</strong>
+                          Makeup day: <strong>Next business day</strong>
                         </span>
                       </div>
                     )}
