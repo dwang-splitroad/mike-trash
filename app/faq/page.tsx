@@ -92,7 +92,7 @@ export default function FAQPage() {
         {
           question: "When is the office open? Where is the office located?",
           answer:
-            "The office is open Monday through Thursday from 8:00 a.m. to 4:00 p.m., and Friday 8:00 a.m. to 12:00 p.m. Our office is located at 824 Main Street in Rochester, Indiana 46975 directly across from the Fulton County Courthouse. We do offer an after-hours drop slot on the office door for after-hours payments.",
+            "The office is open Monday through Thursday from 8:00 a.m. to 4:00 p.m., and Friday 8:00 a.m. to 12:00 p.m. Our office is located at 405 Madison Street in Rochester, Indiana 46975. We do offer an after-hours drop slot on the office door for after-hours payments.",
         },
       ],
     },
@@ -259,7 +259,7 @@ export default function FAQPage() {
                   Our office hours and location
                 </CardDescription>
                 <div className="text-center text-sm text-muted-foreground space-y-1">
-                  <p className="font-semibold">824 Main Street, Rochester, IN 46975</p>
+                  <p className="font-semibold">405 Madison Street, Rochester, IN 46975</p>
                   <p>Mon - Thu: 8:00 AM - 4:00 PM</p>
                   <p>Fri: 8:00 AM - 12:00 PM</p>
                   <p>Sat - Sun: Closed</p>

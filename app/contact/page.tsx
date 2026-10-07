@@ -272,10 +272,10 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg font-semibold text-foreground mb-2">824 Main Street</p>
+                  <p className="text-lg font-semibold text-foreground mb-2">405 Madison Street</p>
                   <p className="text-lg font-semibold text-foreground mb-2">Rochester, Indiana 46975</p>
                   <p className="text-muted-foreground">
-                    Our office is located directly across from the Fulton County Courthouse. We offer an after-hours drop slot on the office door for payments.
+                    We offer an after-hours drop slot on the office door for payments.
                   </p>
                 </CardContent>
               </Card>
