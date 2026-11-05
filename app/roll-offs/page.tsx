@@ -156,6 +156,31 @@ export default function RollOffsPage() {
               </CardContent>
             </Card>
           </div>
+
+          {/* What We Accept */}
+          <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border mb-12 sm:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center px-2">What Goes In Your Cleanup Dumpster</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div>
+                <h3 className="text-lg font-semibold text-primary mb-4">✓ Accepted Materials</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Construction debris</li>
+                  <li>• Household junk and furniture</li>
+                  <li>• Renovation materials</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-destructive mb-4">✗ Prohibited Items</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Hazardous materials</li>
+                  <li>• Paint and chemicals</li>
+                  <li>• Tires and batteries</li>
+                  <li>• Asbestos materials</li>
+                  <li>• Liquids of any kind</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
