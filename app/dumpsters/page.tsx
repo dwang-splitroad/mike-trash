@@ -21,7 +21,7 @@ export default function DumpstersPage() {
         <div className="max-w-2xl mx-auto text-center flex justify-center">
           <Button asChild size="lg" className="text-lg px-8 py-6">
             <a
-              href="https://app.trashjoes.com/h/mikes-trash"
+              href="https://go.mikestrashllc.com/mikes-trash/app/select-services"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -249,7 +249,7 @@ export default function DumpstersPage() {
         <div className="max-w-2xl mx-auto text-center flex justify-center">
           <Button asChild size="lg" className="text-lg px-8 py-6">
             <a
-              href="https://app.trashjoes.com/h/mikes-trash"
+              href="https://go.mikestrashllc.com/mikes-trash/app/select-services"
               target="_blank"
               rel="noopener noreferrer"
             >

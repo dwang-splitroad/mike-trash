@@ -36,7 +36,7 @@ export default function HomePage() {
           <div className="mt-4 sm:mt-6 flex justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6">
               <a
-                href="https://app.trashjoes.com/h/mikes-trash"
+                href="https://go.mikestrashllc.com/mikes-trash/app/select-services"
                 target="_blank"
                 rel="noopener noreferrer"
               >

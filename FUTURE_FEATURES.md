@@ -30,7 +30,7 @@ The service area validation feature allowed users to check if their address is w
 
 ### Current Status
 - **Status**: Hidden/Removed
-- **Reason**: All signups now redirect to external TrashJoes portal (`https://app.trashjoes.com/h/mikes-trash`)
+- **Reason**: All signups now redirect to external TrashJoes portal (`https://go.mikestrashllc.com/mikes-trash/app/select-services`)
 - **Component**: Still exists in codebase but not imported/used on any pages
 
 ### Re-implementation Considerations
@@ -102,7 +102,7 @@ The signup form was integrated into the address checker component and appeared a
 
 ### Current Status
 - **Status**: Removed from UI, but API and email functions remain
-- **Reason**: All signups now redirect to external TrashJoes portal (`https://app.trashjoes.com/h/mikes-trash`)
+- **Reason**: All signups now redirect to external TrashJoes portal (`https://go.mikestrashllc.com/mikes-trash/app/select-services`)
 - **Form UI**: Completely removed from `address-checker.tsx` component
 - **API**: Still functional at `/api/signup` but not called from frontend
 - **Email Functions**: Still available in `lib/sendgrid.ts`
@@ -169,7 +169,7 @@ The form used React state to manage:
 
 ### Current User Flow
 1. User clicks "Sign Up for Service" button
-2. Redirects to `https://app.trashjoes.com/h/mikes-trash`
+2. Redirects to `https://go.mikestrashllc.com/mikes-trash/app/select-services`
 3. External portal handles all validation and signup
 
 ### Files to Review

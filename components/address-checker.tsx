@@ -231,7 +231,7 @@ export function AddressChecker() {
                       size="lg"
                     >
                       <a
-                        href="https://app.trashjoes.com/h/mikes-trash"
+                        href="https://go.mikestrashllc.com/mikes-trash/app/select-services"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
